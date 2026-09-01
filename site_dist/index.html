@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>خیراُمہ ویلفیئر سوسائٹی | A Project of Darul Taqwa</title>
+
+    <!-- Jameel Noori Nastaleeq Font & Google Urdu Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jameel-noori@1.1.2/jameel-noori.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Poppins:wght@400;500;600;700;800&family=Gulzar&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'Jameel Noori Nastaleeq';
+            src: local('Jameel Noori Nastaleeq'),
+                 local('JameelNooriNastaleeq'),
+                 url('https://cdn.jsdelivr.net/npm/jameel-noori@1.1.2/fonts/jameel-noori-nastaleeq4.woff2') format('woff2'),
+                 url('https://cdn.jsdelivr.net/npm/jameel-noori/fonts/jameel-noori-nastaleeq4.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --app-primary: #8b0000;
+            --app-header-grad: linear-gradient(145deg, #a30000 0%, #6e0000 100%);
+            --app-green: #075c3b;
+            --app-accent: #f59e0b;
+            --app-accent-hover: #d97706;
+            --app-bg: #f4f5f7;
+            --app-card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --app-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+            --app-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --urdu-font: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', Tahoma, Arial, sans-serif;
+            --eng-font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            font-family: var(--urdu-font);
+        }
+
+        body {
+            background: #e2e8f0;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            line-height: 2.1;
+        }
+
+        /* MOBILE APP CONTAINER */
+        .app-shell {
+            width: 100%;
+            max-width: 480px;
+            background: var(--app-bg);
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 40px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        /* TOP APP HEADER */
+        .app-main-header {
+            background: var(--app-header-grad);
+            color: #ffffff;
+            padding: 16px 18px 28px;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
+            box-shadow: 0 6px 20px rgba(163, 0, 0, 0.35);
+            text-align: center;
+            position: relative;
+        }
+
+        .header-nav-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .header-back-btn {
+            background: rgba(255, 255, 255, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .header-back-btn:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(1.05);
+        }
+
+        .header-web-link {
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-family: var(--eng-font);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.2s;
+            direction: ltr;
+        }
+
+        .header-web-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: #fef08a;
+        }
+
+        .header-logo-badge {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            margin: 0 auto 6px;
+            display: block;
+        }
+
+        .header-app-title {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .header-app-subtitle {
+            font-size: 13px;
+            color: #fecaca;
+            font-family: var(--eng-font);
+            letter-spacing: 1px;
+            margin-top: 1px;
+        }
+
+        /* FLOATING DONATION CARD */
+        .floating-donate-banner {
+            margin: -20px 16px 16px;
+            background: var(--app-card-bg);
+            border-radius: 18px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: var(--app-shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+            z-index: 10;
+            position: relative;
+        }
+
+        .floating-donate-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .floating-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: #fee2e2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #a30000;
+            flex-shrink: 0;
+        }
+
+        .floating-donate-texts h4 {
+            font-size: 17px;
+            font-weight: 800;
+            color: #111827;
+            line-height: 1.3;
+        }
+
+        .floating-donate-texts p {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-family: var(--eng-font);
+            line-height: 1.4;
+            margin-top: 2px;
+        }
+
+        .btn-pill-donate {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #ffffff;
+            border: none;
+            padding: 9px 18px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-pill-donate:hover {
+            transform: translateY(-2px);
+        }
+
+        /* HD HERO POSTER */
+        .hero-poster-box {
+            margin: 0 16px 16px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--app-shadow);
+            border: 2px solid #e5e7eb;
+            background: #ffffff;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .hero-poster-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-poster-box:hover .hero-poster-img {
+            transform: scale(1.02);
+        }
+
+        .hero-poster-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.75);
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* CATEGORY TABS */
+        .category-tabs-bar {
+            display: flex;
+            border-bottom: 2px solid #e5e7eb;
+            margin: 0 16px 18px;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .cat-tab-item {
+            flex: 1;
+            padding: 12px 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            border: none;
+            background: transparent;
+            line-height: 1.4;
+        }
+
+        .cat-tab-item.active {
+            color: #a30000;
+            background: #fff5f5;
+        }
+
+        .cat-tab-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #a30000;
+            border-radius: 3px 3px 0 0;
+        }
+
+        /* 9 APP ICON CARDS WITH DYNAMIC REAL PHOTO REVEAL ON HOVER / TOUCH */
+        .app-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 0 16px 20px;
+        }
+
+        .app-grid-card {
+            background: var(--app-card-bg);
+            border-radius: 18px;
+            padding: 16px 6px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            border: 1.5px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Inner Real Photo Background Layer */
+        .card-bg-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transform: scale(1.25);
+            transition: opacity 0.45s ease, transform 0.5s ease;
+            z-index: 0;
+        }
+
+        /* Dark Overlay over the photo for text clarity */
+        .card-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .card-inner-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        /* HOVER & ACTIVE TOUCH ANIMATION (انگلی یا ماؤس لے جانے پر اینیمیشن) */
+        .app-grid-card:hover,
+        .app-grid-card:active,
+        .app-grid-card.touch-active {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.22);
+            border-color: #a30000;
+        }
+
+        .app-grid-card:hover .card-bg-photo,
+        .app-grid-card:active .card-bg-photo,
+        .app-grid-card.touch-active .card-bg-photo {
+            opacity: 1;
+            transform: scale(1.03);
+        }
+
+        .app-grid-card:hover .card-bg-overlay,
+        .app-grid-card:active .card-bg-overlay,
+        .app-grid-card.touch-active .card-bg-overlay {
+            opacity: 1;
+        }
+
+        .app-grid-card:hover .grid-circle-icon,
+        .app-grid-card:active .grid-circle-icon,
+        .app-grid-card.touch-active .grid-circle-icon {
+            transform: scale(1.15) rotate(6deg);
+            box-shadow: 0 0 16px rgba(255,255,255,0.7);
+        }
+
+        .app-grid-card:hover .grid-card-title,
+        .app-grid-card:active .grid-card-title,
+        .app-grid-card.touch-active .grid-card-title {
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+        }
+
+        .app-grid-card:hover .grid-card-eng,
+        .app-grid-card:active .grid-card-eng,
+        .app-grid-card.touch-active .grid-card-eng {
+            color: #fef08a;
+            font-weight: bold;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+        }
+
+        .grid-circle-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .grid-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1f2937;
+            line-height: 1.3;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .grid-card-eng {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: var(--eng-font);
+            margin-top: 1px;
+            transition: color 0.3s ease;
+        }
+
+        /* ICON COLORS */
+        .bg-orange { background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%); }
+        .bg-green { background: linear-gradient(135deg, #34d399 0%, #059669 100%); }
+        .bg-blue { background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%); }
+        .bg-teal { background: linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%); }
+        .bg-red { background: linear-gradient(135deg, #f87171 0%, #dc2626 100%); }
+        .bg-purple { background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%); }
+        .bg-rose { background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%); }
+        .bg-gold { background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%); }
+
+        /* GALLERY SECTION & CAROUSEL ON HOME SCREEN */
+        .home-gallery-preview-card {
+            background: #ffffff;
+            border-radius: 18px;
+            margin: 0 16px 20px;
+            padding: 16px;
+            box-shadow: var(--app-shadow);
+        }
+
+        .gallery-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .gallery-header-row h4 {
+            font-size: 19px;
+            font-weight: 800;
+            color: #a30000;
+        }
+
+        .btn-view-all-gallery {
+            background: #fef2f2;
+            color: #a30000;
+            border: 1px solid #fecaca;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .gallery-scroll-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .gallery-preview-thumb {
+            width: 140px;
+            height: 100px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.25s ease;
+            scroll-snap-align: start;
+            border: 1.5px solid #f1f5f9;
+        }
+
+        .gallery-preview-thumb:hover {
+            transform: scale(1.05);
+            border-color: #a30000;
+        }
+
+        /* FULL GALLERY SCREEN */
+        .gallery-screen-wrap {
+            margin: 16px;
+        }
+
+        .screen-top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .screen-back-action-btn {
+            background: #ffffff;
+            border: 1.5px solid #e5e7eb;
+            color: #a30000;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .screen-back-action-btn:hover {
+            background: #fef2f2;
+            border-color: #a30000;
+        }
+
+        .drive-link-banner {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            box-shadow: var(--app-shadow);
+        }
+
+        .drive-link-banner h4 {
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .drive-link-banner p {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        .btn-drive-open {
+            background: #3b82f6;
+            color: #ffffff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .gallery-grid-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .gallery-card-item {
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.25s ease;
+        }
+
+        .gallery-card-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .gallery-card-img {
+            width: 100%;
+            height: 135px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-card-tag {
+            padding: 6px 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #374151;
+            text-align: center;
+            background: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* SCREENS CONTAINER */
+        .screen-view {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .screen-view.active-screen {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* SCREEN: PROJECTS LIST */
+        .projects-list-container {
+            margin: 16px;
+        }
+
+        .search-box-wrap {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #e5e7eb;
+        }
+
+        .search-box-wrap input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+            background: transparent;
+            font-family: var(--eng-font), var(--urdu-font);
+        }
+
+        .project-list-item {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .project-list-item:hover {
+            transform: translateX(-4px);
+            border-color: #a30000;
+            box-shadow: 0 4px 14px rgba(163, 0, 0, 0.12);
+        }
+
+        .project-item-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .project-item-icon {
+            font-size: 30px;
+        }
+
+        .project-item-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1f2937;
+            line-height: 1.3;
+        }
+
+        .project-item-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+
+        .project-arrow {
+            color: #9ca3af;
+            font-size: 18px;
+        }
+
+        /* FORMS */
+        .form-card-wrapper {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 22px 18px;
+            margin: 16px;
+            box-shadow: var(--app-shadow);
+            border: 1px solid #e5e7eb;
+        }
+
+        .form-title-heading {
+            font-size: 24px;
+            font-weight: 800;
+            color: #a30000;
+            text-align: center;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .app-input-group {
+            margin-bottom: 16px;
+        }
+
+        .app-input-group label {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .app-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            background: #fafbfc;
+            transition: 0.2s;
+            font-family: var(--urdu-font);
+        }
+
+        .app-input:focus {
+            border-color: #a30000;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(163, 0, 0, 0.12);
+        }
+
+        /* RADIO BUTTONS ROW */
+        .radio-options-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 8px 0 16px;
+        }
+
+        .radio-chip-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #f9fafb;
+            border: 1.5px solid #d1d5db;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .radio-chip-label.selected {
+            background: #fef2f2;
+            border-color: #a30000;
+            color: #a30000;
+        }
+
+        .radio-chip-label input {
+            display: none;
+        }
+
+        /* RATION CHECKLIST */
+        .form-ration-checklist {
+            background: #fffbeb;
+            border: 1.5px solid #fde68a;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .form-ration-checklist h5 {
+            font-size: 16px;
+            color: #92400e;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .ration-chips-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ration-chip-box {
+            background: #ffffff;
+            border: 1px solid #fde68a;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .btn-app-submit {
+            width: 100%;
+            background: #a30000;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(163, 0, 0, 0.35);
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            line-height: 1.4;
+        }
+
+        .btn-app-submit:hover {
+            background: #850000;
+            transform: translateY(-2px);
+        }
+
+        /* BANK CARD */
+        .bank-details-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 18px;
+            margin: 16px;
+            box-shadow: var(--app-shadow);
+            border: 1.5px solid #fde68a;
+        }
+
+        .bank-acc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 15px;
+            border-bottom: 1px dashed #e5e7eb;
+            padding-bottom: 8px;
+        }
+
+        .acc-copy-btn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* OFFICIAL WEBSITE CALLOUT CARD */
+        .official-site-card {
+            background: linear-gradient(135deg, #075c3b 0%, #033621 100%);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 16px;
+            margin: 0 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: var(--app-shadow);
+            border: 1.5px solid #34d399;
+        }
+
+        .official-site-card h5 {
+            font-size: 17px;
+            font-weight: 800;
+            color: #fef08a;
+            line-height: 1.3;
+        }
+
+        .official-site-card p {
+            font-size: 13px;
+            color: #d1fae5;
+            direction: ltr;
+            font-family: var(--eng-font);
+            margin-top: 2px;
+        }
+
+        .btn-visit-web {
+            background: #ffffff;
+            color: #075c3b;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            transition: 0.2s;
+        }
+
+        .btn-visit-web:hover {
+            background: #fef08a;
+            transform: scale(1.05);
+        }
+
+        /* BOTTOM APP NAVIGATION BAR */
+        .app-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 8px 4px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            background: none;
+            border: none;
+            width: 20%;
+        }
+
+        .nav-item i {
+            font-size: 21px;
+            margin-bottom: 2px;
+            transition: transform 0.25s ease;
+        }
+
+        .nav-item span {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            font-family: var(--eng-font), var(--urdu-font);
+        }
+
+        .nav-item.active {
+            color: #a30000;
+        }
+
+        .nav-item.active i {
+            transform: scale(1.15);
+        }
+
+        /* LIGHTBOX */
+        #imgLightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 2500;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        #imgLightbox img {
+            max-width: 95%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: white;
+            font-size: 36px;
+            cursor: pointer;
+        }
+
+        .lightbox-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            color: white;
+            border: none;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lightbox-nav-btn.prev { right: 15px; }
+        .lightbox-nav-btn.next { left: 15px; }
+
+        #toast {
+            position: fixed;
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1f2937;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            display: none;
+            z-index: 3000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+
+        .admin-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+
+        .admin-modal-box {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 440px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- TOP APP HEADER -->
+    <header class="app-main-header">
+        <div class="header-nav-row">
+            <button class="header-back-btn" id="headerBackBtn" onclick="goBackOrHome()" title="واپس جائیں">
+                <i class="fa-solid fa-chevron-right"></i> واپس
+            </button>
+            
+            <a href="https://khaireummah.org/" target="_blank" class="header-web-link" title="آفیشل ویب سائٹ کھولیں">
+                <i class="fa-solid fa-globe"></i> khaireummah.org
+            </a>
+
+            <button class="header-back-btn" onclick="openAdminModal()" title="ایڈمن ریکارڈز" style="padding:4px 8px;">
+                <i class="fa-solid fa-lock"></i>
+            </button>
+        </div>
+
+        <img src="images/logo.jpg" alt="Khair Ummah Logo" class="header-logo-badge">
+        <h1 class="header-app-title">خیراُمہ ویلفیئر سوسائٹی</h1>
+        <p class="header-app-subtitle">Khair-e-Ummah Welfare (Regd.)</p>
+    </header>
+
+    <!-- FLOATING DONATION CARD -->
+    <div class="floating-donate-banner">
+        <div class="floating-donate-left">
+            <div class="floating-icon-box">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <div class="floating-donate-texts">
+                <h4>خدمتِ انسانیت، عطیہ پیش کریں</h4>
+                <p id="currentLiveDate">August 31, 2026</p>
+            </div>
+        </div>
+        <button class="btn-pill-donate" onclick="switchAppScreen('donation')">
+            عطیہ دیں <i class="fa-solid fa-arrow-left"></i>
+        </button>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- SCREEN 1: HOME SCREEN (ہوم اسکرین) -->
+    <!-- ==================================================== -->
+    <div class="screen-view active-screen" id="screenHome">
+
+        <!-- OFFICIAL WEBSITE CALLOUT CARD -->
+        <div class="official-site-card">
+            <div>
+                <h5><i class="fa-solid fa-globe"></i> ہماری آفیشل ویب سائٹ</h5>
+                <p>khaireummah.org</p>
+            </div>
+            <a href="https://khaireummah.org/" target="_blank" class="btn-visit-web">
+                ویب سائٹ دیکھیں <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        </div>
+
+        <!-- HD HERO POSTER -->
+        <div class="hero-poster-box" onclick="openLightbox('images/showcase.jpg')" title="بڑا کر کے دیکھنے کے لیے کلک کریں">
+            <img src="images/showcase.jpg" alt="خیراُمہ ویلفیئر سوسائٹی مکمل پوسٹر" class="hero-poster-img">
+            <div class="hero-poster-badge">
+                <i class="fa-solid fa-expand"></i> فل اسکرین ایچ ڈی دیکھیں
+            </div>
+        </div>
+
+        <!-- SERVICES & ACTIVITIES GALLERY CAROUSEL PREVIEW -->
+        <div class="home-gallery-preview-card">
+            <div class="gallery-header-row">
+                <h4><i class="fa-solid fa-images"></i> فلاحی خدمات کی تصویری جھلکیاں</h4>
+                <button class="btn-view-all-gallery" onclick="switchAppScreen('gallery')">
+                    تمام 40+ تصاویر <i class="fa-solid fa-chevron-left"></i>
+                </button>
+            </div>
+            <div class="gallery-scroll-container" id="homeGalleryScroll"></div>
+        </div>
+
+        <!-- CATEGORY TABS -->
+        <div class="category-tabs-bar">
+            <button class="cat-tab-item active" onclick="filterHomeCategory('all', this)">فلاحی خدمات</button>
+            <button class="cat-tab-item" onclick="filterHomeCategory('ration', this)">راشن و کفالت</button>
+            <button class="cat-tab-item" onclick="filterHomeCategory('health', this)">طبی و تعلیم</button>
+        </div>
+
+        <!-- 9 ROUND APP ICON CARDS WITH REAL PHOTO BACKGROUND ANIMATION -->
+        <div class="app-grid-container" id="homeGridContainer">
+            
+            <!-- 1. راشن پیکج (Ration) -->
+            <div class="app-grid-card" onclick="openProjectDirect('راشن پیکج')">
+                <div class="card-bg-photo" style="background-image: url('images/slider/slide_ration.jpg');"></div>
+                <div class="card-bg-overlay"></div>
+                <div class="card-inner-content">
+                    <div class="grid-circle-icon bg-orange">
+                        <i class="fa-solid fa-bowl-rice"></i>
+                    </div>
+                    <div class="grid-card-title">راشن پیکج</div>
+                    <div class="grid-card-eng">Ration</div>
+                </div>
+            </div>
+
+            <!-- 2. تعلیم و کتب (Education) -->
+            <div class="app-grid-card" onclick="openProjectDirect('تعلیمی معاونت')">
+                <div class="card-bg-photo" style="background-image: url('images/slider/slide_education.jpg');"></div>
+                <div class="card-bg-overlay"></div>
+                <div class="card-inner-content">
+                    <div class="grid-circle-icon bg-green">
+                        <i class="fa-solid fa-book-quran"></i>
+                    </div>
+                    <div class="grid-card-title">تعلیم و وظائف</div>
+                    <div class="grid-card-eng">Education</div>
+                </div>
+            </div>
+
+            <!-- 3. مفت ڈسپنسری (Dispensary) -->
+            <div class="app-grid-card" onclick="openProjectDirect('طبی / ڈسپنسری')">
+                <div class="card-bg-photo" style="background-image: url('images/slider/slide_dispensary.jpg');"></div>
+                <div class="card-bg-overlay"></div>
+                <div class="card-inner-content">
+                    <div class="grid-circle-icon bg-blue">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <div class="grid-card-title">مفت ڈسپنسری</div>
+                    <div class="grid-card-eng">Dispensary</div>
+                </div>
+            </div>
+
+            <!-- 4. صاف پانی (Clean Water) -->
+            <div class="app-grid-card" onclick="openProjectDirect('صاف پانی')">
+                <div class="card-bg-photo" style="background-image: url('images/slider/slide_water_filter.jpg');"></div>
+                <div class="card-bg-overlay"></div>
+                <div class="card-inner-content">
+                    <div class="grid-circle-icon bg-teal">
+                        <i class="fa-solid fa-hand-holding-droplet"></i>
+                    </div>
+                    <div class="grid-card-title">صاف پانی</div>
+                    <div class="grid-card-eng">Clean Water</div>
+                </div>
+            </div>
+
+            <!-- 5. ایمبولینس سروس (Ambulance) -->
+            <div class="app-grid-card" onclick="openProjectDirect('ایمبولینس سروس')">
+                <div class="card-bg-photo" style="background-image: url('images/slider/slide_ambulance.jpg');"></div>
+                <div class="card-bg-overlay"></div>
+                <div class="card-inner-content">
+                    <div class="grid-circle-icon bg-red">
+                        <i class="fa-solid fa-truck-medical"></i>
+                    </div>
+                    <div class="grid-card-title">ایمبولینس</div>
+                    <div class="grid-card-eng">Ambulance</div>
+                </div>
+            </div>
+
+            <!-- 6. غسل و کفن (Ghusal & Kafan) -->
+            <div class="app-grid-card" onclick="openProjectDirect('غسل و کفن')">
+                <div class="card-bg-photo" style="background-image: url('images/slider/slide_ghusal_kafan.jpg');"></div>
+                <div class="card-bg-overlay"></div>
+                <div class="card-inner-content">
+                    <div class="grid-circle-icon bg-purple">
+                        <i class="fa-solid fa-hands-praying"></i>
+                    </div>
+                    <div class="grid-card-title">غسل و کفن</div>
+                    <div class="grid-card-eng">Ghusal & Kafan</div>
+                </div>
+            </div>
+
+            <!-- 7. عطیہ قربانی (Atiya Qurbani) -->
+            <div class="app-grid-card" onclick="openProjectDirect('عطیہ قربانی')">
+                <div class="card-bg-photo" style="background-image: url('images/slider/slide_qurbani.jpg');"></div>
+                <div class="card-bg-overlay"></div>
+                <div class="card-inner-content">
+                    <div class="grid-circle-icon bg-rose">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                    </div>
+                    <div class="grid-card-title">عطیہ قربانی</div>
+                    <div class="grid-card-eng">Atiya Qurbani</div>
+                </div>
+            </div>
+
+            <!-- 8. تصویری گیلری (Live Gallery) -->
+            <div class="app-grid-card" onclick="switchAppScreen('gallery')">
+                <div class="card-bg-photo" style="background-image: url('images/gallery/IMG-20260329-WA0115.jpg');"></div>
+                <div class="card-bg-overlay"></div>
+                <div class="card-inner-content">
+                    <div class="grid-circle-icon bg-gold">
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <div class="grid-card-title">تصاویری گیلری</div>
+                    <div class="grid-card-eng">Live Gallery</div>
+                </div>
+            </div>
+
+            <!-- 9. درخواست امداد (Apply Aid) -->
+            <div class="app-grid-card" onclick="switchAppScreen('apply')">
+                <div class="card-bg-photo" style="background-image: url('images/slider/slide_building.jpg');"></div>
+                <div class="card-bg-overlay"></div>
+                <div class="card-inner-content">
+                    <div class="grid-circle-icon" style="background: linear-gradient(135deg, #475569 0%, #1e293b 100%);">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </div>
+                    <div class="grid-card-title">امداد فارم</div>
+                    <div class="grid-card-eng">Apply Aid</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- QUICK HELPLINE -->
+        <div class="quick-helpline-card" style="background:#fff; border-radius:16px; margin:0 16px 20px; padding:16px; box-shadow:var(--app-shadow); border-left:4px solid #a30000; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+                <h5 style="font-size:16px; font-weight:bold;">ہیلپ لائن و رہنمائی</h5>
+                <p style="font-size:13px; color:#6b7280; direction:ltr; font-family:var(--eng-font);">0300-1582792</p>
+            </div>
+            <a href="https://wa.me/923001582792?text=السلام%20علیکم!%20خیراُمہ%20ویلفیئر%20سوسائٹی" target="_blank" style="background:#25D366; color:white; padding:8px 14px; border-radius:20px; text-decoration:none; font-size:14px; font-weight:bold;">
+                <i class="fa-brands fa-whatsapp"></i> واٹس ایپ
+            </a>
+        </div>
+
+        <!-- FOOTER BANNER -->
+        <div style="margin: 0 16px 20px; border-radius: 14px; overflow: hidden; box-shadow: var(--app-shadow);">
+            <img src="images/banner.png" alt="خیراُمہ بینر" style="width: 100%; display:block; cursor:pointer;" onclick="openLightbox('images/banner.png')">
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- SCREEN 2: FULL SERVICES & ACTIVITIES GALLERY (تصاویری گیلری) -->
+    <!-- ==================================================== -->
+    <div class="screen-view" id="screenGallery">
+        <div class="gallery-screen-wrap">
+            <div class="screen-top-bar">
+                <button class="screen-back-action-btn" onclick="goBackOrHome()">
+                    <i class="fa-solid fa-arrow-right"></i> ہوم پر واپس
+                </button>
+                <span style="font-size: 14px; color: var(--text-muted);">40+ فیلڈ سرگرمیاں</span>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 800; color: #a30000; margin-bottom: 6px;">ہماری خدمات و تصویری گیلری</h3>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">خیراُمہ ویلفیئر سوسائٹی کے مختلف فلاحی منصوبوں اور راشن تقسیم کی تصاویر</p>
+
+            <!-- Google Drive Cloud Banner Link -->
+            <div class="drive-link-banner">
+                <div>
+                    <h4><i class="fa-brands fa-google-drive" style="color:#60a5fa;"></i> گوگل ڈرائیو تصویری البم</h4>
+                    <p>تمام اصل اور ہائی ریزولوشن تصاویر</p>
+                </div>
+                <a href="https://drive.google.com/drive/folders/1s9MnwqdiWxLfv2rsvgVVBronkVRmk5Zr?usp=sharing" target="_blank" class="btn-drive-open">
+                    ڈرائیو کھولیں <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- 2-Column Responsive Grid -->
+            <div class="gallery-grid-2col" id="fullGalleryGrid"></div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- SCREEN 3: OUR PROJECTS LIST (ہمارے منصوبے) -->
+    <!-- ==================================================== -->
+    <div class="screen-view" id="screenProjects">
+        <div class="projects-list-container">
+            <div class="screen-top-bar">
+                <button class="screen-back-action-btn" onclick="goBackOrHome()">
+                    <i class="fa-solid fa-arrow-right"></i> ہوم پر واپس
+                </button>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 800; color: #a30000; margin-bottom: 12px;">ہمارے فلاحی منصوبے (Our Projects)</h3>
+
+            <!-- Search Bar -->
+            <div class="search-box-wrap">
+                <i class="fa-solid fa-magnifying-glass" style="color:#9ca3af;"></i>
+                <input type="text" id="projectSearchInput" placeholder="منصوبہ تلاش کریں..." oninput="filterProjectsList()">
+            </div>
+
+            <!-- Project Items List -->
+            <div id="projectsListWrap">
+                <div class="project-list-item" onclick="openProjectDirect('صاف پانی')">
+                    <div class="project-item-left">
+                        <span class="project-item-icon" style="color:#0284c7;">💧</span>
+                        <div>
+                            <div class="project-item-title">صاف پانی فلٹریشن پلانٹس</div>
+                            <div class="project-item-desc">Clean Water Projects</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left project-arrow"></i>
+                </div>
+
+                <div class="project-list-item" onclick="openProjectDirect('راشن پیکج')">
+                    <div class="project-item-left">
+                        <span class="project-item-icon" style="color:#ea580c;">🥘</span>
+                        <div>
+                            <div class="project-item-title">ماہانہ راشن پیکج و اشیاء</div>
+                            <div class="project-item-desc">Ration Distribution & Support</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left project-arrow"></i>
+                </div>
+
+                <div class="project-list-item" onclick="openProjectDirect('تعلیمی معاونت')">
+                    <div class="project-item-left">
+                        <span class="project-item-icon" style="color:#059669;">📚</span>
+                        <div>
+                            <div class="project-item-title">تعلیمی معاونت و کتب</div>
+                            <div class="project-item-desc">Education & Student Sponsorship</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left project-arrow"></i>
+                </div>
+
+                <div class="project-list-item" onclick="openProjectDirect('طبی / ڈسپنسری')">
+                    <div class="project-item-left">
+                        <span class="project-item-icon" style="color:#dc2626;">🏥</span>
+                        <div>
+                            <div class="project-item-title">مفت ڈسپنسری و علاج</div>
+                            <div class="project-item-desc">Health Assistance & Free Medicine</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left project-arrow"></i>
+                </div>
+
+                <div class="project-list-item" onclick="openProjectDirect('ایمبولینس سروس')">
+                    <div class="project-item-left">
+                        <span class="project-item-icon" style="color:#dc2626;">🚑</span>
+                        <div>
+                            <div class="project-item-title">24 گھنٹے ایمرجنسی ایمبولینس</div>
+                            <div class="project-item-desc">Emergency Ambulance Service</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left project-arrow"></i>
+                </div>
+
+                <div class="project-list-item" onclick="openProjectDirect('غسل و کفن')">
+                    <div class="project-item-left">
+                        <span class="project-item-icon" style="color:#9333ea;">🕊️</span>
+                        <div>
+                            <div class="project-item-title">غسل، کفن و تدفین کے انتظامات</div>
+                            <div class="project-item-desc">Ghusal & Kafan Services</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left project-arrow"></i>
+                </div>
+
+                <div class="project-list-item" onclick="openProjectDirect('عطیہ قربانی')">
+                    <div class="project-item-left">
+                        <span class="project-item-icon" style="color:#e11d48;">🥩</span>
+                        <div>
+                            <div class="project-item-title">عطیہ قربانی گوشت تقسیم</div>
+                            <div class="project-item-desc">Atiya Qurbani Meat Project</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left project-arrow"></i>
+                </div>
+
+                <div class="project-list-item" onclick="openProjectDirect('دیگر امداد')">
+                    <div class="project-item-left">
+                        <span class="project-item-icon" style="color:#ca8a04;">🤝</span>
+                        <div>
+                            <div class="project-item-title">بیواؤں و یتیموں کی مالی معاونت</div>
+                            <div class="project-item-desc">Community & Widow Support</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-left project-arrow"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- SCREEN 4: MAKE A DONATION (عطیہ فارم) -->
+    <!-- ==================================================== -->
+    <div class="screen-view" id="screenDonation">
+        <div class="form-card-wrapper">
+            <div class="screen-top-bar">
+                <button class="screen-back-action-btn" onclick="goBackOrHome()">
+                    <i class="fa-solid fa-arrow-right"></i> ہوم پر واپس
+                </button>
+            </div>
+
+            <h3 class="form-title-heading">عطیہ پیش کریں (Make a Donation)</h3>
+
+            <form id="mobileDonationForm">
+                <div class="app-input-group">
+                    <label>آپ کا نام (Enter your name):</label>
+                    <input type="text" id="mDonorName" class="app-input" placeholder="اپنا نام لکھیں" required>
+                </div>
+
+                <div class="app-input-group">
+                    <label>رابطہ نمبر (Contact Number):</label>
+                    <input type="tel" id="mDonorPhone" class="app-input" placeholder="03001234567" required dir="ltr" style="text-align:right; font-family:var(--eng-font);">
+                </div>
+
+                <div class="app-input-group">
+                    <label>فلاحی شعبہ منتخب کریں (Select Category):</label>
+                    <select id="mDonorCategory" class="app-input" onchange="toggleRationItemBox(this.value)" required>
+                        <option value="راشن / اشیائے خورونوش">🥘 راشن / اشیائے خورونوش</option>
+                        <option value="عام فنڈ / صدقات">💵 عمومی فلاحی فنڈ / زکوٰۃ</option>
+                        <option value="تعلیمی کتب / یونیفارم">📚 تعلیمی کتب و یونیفارم</option>
+                        <option value="ادویات / میڈیکل سامان">🏥 ادویات / علاج معالجہ</option>
+                        <option value="صاف پانی / ہینڈ پمپ">💧 صاف پانی پراجیکٹ</option>
+                        <option value="کپڑے / بستر / کمبل">👕 کپڑے / بستر / راشن</option>
+                        <option value="عطیہ قربانی">🥩 عطیہ قربانی</option>
+                    </select>
+                </div>
+
+                <div class="app-input-group">
+                    <label>عطیہ کی نوعیت (Donation Type):</label>
+                    <div class="radio-options-row">
+                        <label class="radio-chip-label selected" onclick="selectDonType('Zakat', this)">
+                            <input type="radio" name="mDonType" value="Zakat" checked>
+                            <span>🔴 زکوٰۃ (Zakat)</span>
+                        </label>
+                        <label class="radio-chip-label" onclick="selectDonType('Sadqa', this)">
+                            <input type="radio" name="mDonType" value="Sadqa">
+                            <span>⚪ صدقہ (Sadqa)</span>
+                        </label>
+                        <label class="radio-chip-label" onclick="selectDonType('General', this)">
+                            <input type="radio" name="mDonType" value="General">
+                            <span>⚪ عمومی عطیہ (General)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-ration-checklist" id="mRationChecklist" style="display: block;">
+                    <h5><i class="fa-solid fa-list-check"></i> راشن اشیاء (ایک یا زیادہ منتخب کریں):</h5>
+                    <div class="ration-chips-wrap">
+                        <label class="ration-chip-box"><input type="checkbox" name="mRationItem" value="مکمل راشن بیگ"> مکمل بیگ</label>
+                        <label class="ration-chip-box"><input type="checkbox" name="mRationItem" value="آٹا (تھیلا)"> آٹا</label>
+                        <label class="ration-chip-box"><input type="checkbox" name="mRationItem" value="گھی/آئل"> گھی/آئل</label>
+                        <label class="ration-chip-box"><input type="checkbox" name="mRationItem" value="چاول"> چاول</label>
+                        <label class="ration-chip-box"><input type="checkbox" name="mRationItem" value="دالیں/چنے"> دالیں</label>
+                        <label class="ration-chip-box"><input type="checkbox" name="mRationItem" value="چینی/پتی"> چینی/پتی</label>
+                    </div>
+                </div>
+
+                <div class="app-input-group">
+                    <label>رقم یا مقدار (Enter amount / details):</label>
+                    <input type="text" id="mDonorAmount" class="app-input" placeholder="مثلاً: 5000 روپے یا 2 تھیلے آٹا...">
+                </div>
+
+                <div class="app-input-group">
+                    <label>ادائیگی / ترسیل کا طریقہ (Payment Type):</label>
+                    <select id="mDonorPaymentType" class="app-input" required>
+                        <option value="بینک ٹرانسفر">💳 بینک اکاؤنٹ ٹرانسفر</option>
+                        <option value="ایزی پیسہ / جاز کیش">📱 ایزی پیسہ / جاز کیش</option>
+                        <option value="گھر سے وصولی">🚗 خیراُمہ ٹیم ہمارے گھر سے آکر وصول کرے</option>
+                        <option value="دفتر میں جمع">🏢 میں خود دارالتقویٰ دفتر پہنچاؤں گا</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-app-submit">
+                    <i class="fa-solid fa-heart"></i> عطیہ جمع کروائیں
+                </button>
+            </form>
+        </div>
+
+        <div class="bank-details-card">
+            <h4 style="font-size: 19px; font-weight:800; color:#92400e; margin-bottom:12px;">
+                <i class="fa-solid fa-building-columns"></i> براہِ راست بینک و آن لائن اکاؤنٹس
+            </h4>
+            <div class="bank-acc-row">
+                <span><strong>میزان بینک:</strong> 03001582792</span>
+                <button class="acc-copy-btn" onclick="copyText('03001582792', 'بینک نمبر کاپی ہو گیا!')">کاپی</button>
+            </div>
+            <div class="bank-acc-row">
+                <span><strong>جازکیش / ایزی پیسہ:</strong> 0300-1582792</span>
+                <button class="acc-copy-btn" onclick="copyText('03001582792', 'اکاؤنٹ نمبر کاپی ہو گیا!')">کاپی</button>
+            </div>
+            <p style="font-size: 13px; color:#78716c; margin-top:8px;">اکاؤنٹ ٹائٹل: <strong>Khair-e-Ummah / Darul Taqwa</strong></p>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- SCREEN 5: APPLY FOR AID (امداد کی درخواست فارم) -->
+    <!-- ==================================================== -->
+    <div class="screen-view" id="screenApply">
+        <div class="form-card-wrapper">
+            <div class="screen-top-bar">
+                <button class="screen-back-action-btn" onclick="goBackOrHome()">
+                    <i class="fa-solid fa-arrow-right"></i> ہوم پر واپس
+                </button>
+            </div>
+
+            <div style="text-align: center;">
+                <span style="background:#e0f2fe; color:#0369a1; padding:5px 14px; border-radius:20px; font-size:14px; font-weight:bold; display:inline-block; margin-bottom:8px;">مستحقین کے لیے باضابطہ پورٹل</span>
+                <h3 class="form-title-heading" style="color:#0284c7;">امداد کی درخواست (Apply for Aid)</h3>
+            </div>
+
+            <form id="mobileAidForm">
+                <div class="app-input-group">
+                    <label>پورا نام (Full Name):</label>
+                    <input type="text" id="mAidName" class="app-input" placeholder="اپنا پورا نام لکھیں" required>
+                </div>
+
+                <div class="app-input-group">
+                    <label>موبائل نمبر (Mobile Number):</label>
+                    <input type="tel" id="mAidPhone" class="app-input" placeholder="03001234567" required dir="ltr" style="text-align:right; font-family:var(--eng-font);">
+                </div>
+
+                <div class="app-input-group">
+                    <label>شہر / علاقہ (City / Area):</label>
+                    <input type="text" id="mAidCity" class="app-input" placeholder="مثلاً: لاہور، قصور وغیرہ" required>
+                </div>
+
+                <div class="app-input-group">
+                    <label>کس قسم کی مدد درکار ہے؟ (Need Category):</label>
+                    <select id="mAidCategory" class="app-input" required>
+                        <option value="راشن پیکج">🥘 راشن پیکج</option>
+                        <option value="تعلیمی معاونت">📚 تعلیمی فیس / کتب</option>
+                        <option value="طبی / ڈسپنسری">🏥 مفت علاج / ادویات</option>
+                        <option value="صاف پانی">💧 صاف پانی پراجیکٹ</option>
+                        <option value="ایمبولینس سروس">🚑 ایمرجنسی ایمبولینس</option>
+                        <option value="غسل و کفن">🕊️ غسل و کفن و تدفین</option>
+                        <option value="عطیہ قربانی">🥩 قربانی کا گوشت</option>
+                        <option value="دیگر امداد">🤝 دیگر مالی مدد</option>
+                    </select>
+                </div>
+
+                <div class="app-input-group">
+                    <label>مکمل رہائشی پتہ (Full Address):</label>
+                    <textarea id="mAidAddress" class="app-input" placeholder="گھر کا نمبر، گلی، محلہ، قریبی مشہور جگہ" rows="2" required></textarea>
+                </div>
+
+                <div class="app-input-group">
+                    <label>مسئلے کی تفصیل (Problem Description):</label>
+                    <textarea id="mAidProblem" class="app-input" placeholder="اپنی گھریلو و مالی حالت اور درکار مدد بیان کریں..." rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-app-submit" style="background:#0284c7;">
+                    <i class="fa-solid fa-paper-plane"></i> درخواست جمع کروائیں
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- BOTTOM APP NAVIGATION BAR (5 TABS) -->
+    <!-- ==================================================== -->
+    <nav class="app-bottom-nav">
+        <!-- 1. Projects -->
+        <button class="nav-item" id="navProjects" onclick="switchAppScreen('projects')">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Projects</span>
+        </button>
+
+        <!-- 2. Gallery -->
+        <button class="nav-item" id="navGallery" onclick="switchAppScreen('gallery')">
+            <i class="fa-solid fa-images"></i>
+            <span>Gallery</span>
+        </button>
+
+        <!-- 3. Home (Active by default) -->
+        <button class="nav-item active" id="navHome" onclick="switchAppScreen('home')">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </button>
+
+        <!-- 4. Donation -->
+        <button class="nav-item" id="navDonation" onclick="switchAppScreen('donation')">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Donation</span>
+        </button>
+
+        <!-- 5. Apply Aid -->
+        <button class="nav-item" id="navApply" onclick="switchAppScreen('apply')">
+            <i class="fa-solid fa-file-pen"></i>
+            <span>Apply</span>
+        </button>
+    </nav>
+
+</div> <!-- End App Shell -->
+
+
+<!-- IMAGE LIGHTBOX WITH SLIDER CONTROLS -->
+<div id="imgLightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <button class="lightbox-nav-btn prev" onclick="prevLightboxImg()"><i class="fa-solid fa-chevron-right"></i></button>
+    <img id="lightboxImg" src="" alt="Full view" onclick="event.stopPropagation()">
+    <button class="lightbox-nav-btn next" onclick="nextLightboxImg()"><i class="fa-solid fa-chevron-left"></i></button>
+</div>
+
+<!-- TOAST ALERT -->
+<div id="toast"></div>
+
+<!-- ADMIN MODAL -->
+<div class="admin-modal-overlay" id="adminModalOverlay" onclick="if(event.target===this) closeAdminModal()">
+    <div class="admin-modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:12px;">
+            <h4 style="font-size:18px; color:#a30000; font-weight:bold;"><i class="fa-solid fa-database"></i> موصول شدہ ریکارڈز</h4>
+            <button onclick="closeAdminModal()" style="border:none; background:none; font-size:22px; cursor:pointer;">&times;</button>
+        </div>
+        <div style="margin-bottom:12px; display:flex; justify-content:space-between;">
+            <span id="mRecordCount" style="font-weight:bold; font-size:14px;">کل: 0</span>
+            <button onclick="exportCSV()" style="background:#075c3b; color:white; border:none; padding:4px 10px; border-radius:6px; font-size:13px; cursor:pointer;">📥 CSV ڈاؤنلوڈ</button>
+        </div>
+        <div id="mAdminRecordsList" style="font-size:13px;"></div>
+    </div>
+</div>
+
+
+<script>
+    const STORAGE_KEY = "khairUmmahRequests";
+    let activeDonationType = "Zakat";
+    let screenHistory = ['home'];
+
+    // 40 Gallery image files downloaded from Google Drive
+    const GALLERY_IMAGES = [
+        "IMG-20260329-WA0115.jpg", "IMG-20260329-WA0125.jpg", "IMG-20260329-WA0151.jpg", 
+        "IMG-20260329-WA0154.jpg", "IMG-20260329-WA0170.jpg", "IMG-20260329-WA0179.jpg", 
+        "IMG-20260329-WA0206.jpg", "IMG-20260329-WA0209.jpg", "IMG-20260329-WA0214.jpg", 
+        "IMG-20260329-WA0221.jpg", "IMG-20260329-WA0229.jpg", "IMG-20260329-WA0242.jpg", 
+        "IMG-20260329-WA0255.jpg", "IMG-20260329-WA0257.jpg", "IMG-20260329-WA0259.jpg", 
+        "IMG-20260329-WA0260.jpg", "IMG-20260329-WA0271.jpg", "IMG-20260329-WA0278.jpg", 
+        "IMG-20260329-WA0291.jpg", "IMG-20260329-WA0292.jpg", "IMG-20260329-WA0294.jpg", 
+        "IMG-20260329-WA0296.jpg", "IMG-20260329-WA0305.jpg", "IMG-20260329-WA0311.jpg", 
+        "IMG-20260329-WA0328.jpg", "IMG-20260329-WA0334.jpg", "IMG-20260329-WA0340.jpg", 
+        "IMG-20260329-WA0352.jpg", "IMG-20260329-WA0369.jpg", "IMG-20260329-WA0372.jpg", 
+        "IMG-20260329-WA0374.jpg", "IMG-20260329-WA0375.jpg", "IMG-20260329-WA0376.jpg", 
+        "IMG-20260329-WA0378.jpg", "IMG-20260329-WA0382.jpg", "IMG-20260329-WA0383.jpg", 
+        "IMG-20260329-WA0385.jpg", "IMG-20260329-WA0394.jpg", "IMG-20260329-WA0419.jpg", 
+        "IMG-20260402-WA0139.jpg"
+    ];
+
+    let currentLightboxList = [];
+    let currentLightboxIdx = 0;
+
+    // Initialize on Load
+    document.addEventListener("DOMContentLoaded", () => {
+        const d = new Date();
+        document.getElementById("currentLiveDate").textContent = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        
+        renderHomeGalleryPreview();
+        renderFullGalleryGrid();
+
+        // Browser / Phone Back Button Support
+        window.history.pushState({ screen: 'home' }, '');
+        window.addEventListener('popstate', (e) => {
+            if (e.state && e.state.screen) {
+                switchAppScreen(e.state.screen, false);
+            } else {
+                goBackOrHome(false);
+            }
+        });
+
+        // Mobile touch interaction for background photo reveal
+        document.querySelectorAll('.app-grid-card').forEach(card => {
+            card.addEventListener('touchstart', function() {
+                document.querySelectorAll('.app-grid-card').forEach(c => c.classList.remove('touch-active'));
+                this.classList.add('touch-active');
+            }, { passive: true });
+        });
+    });
+
+    // Render Home Horizontal Preview
+    function renderHomeGalleryPreview() {
+        const wrap = document.getElementById("homeGalleryScroll");
+        if (!wrap) return;
+        const previewImgs = GALLERY_IMAGES.slice(0, 10);
+        wrap.innerHTML = previewImgs.map((img, idx) => `
+            <img src="images/gallery/${img}" alt="سرگرمی" class="gallery-preview-thumb" onclick="openGalleryLightbox(${idx})">
+        `).join('');
+    }
+
+    // Render Full 2-Column Gallery Grid
+    function renderFullGalleryGrid() {
+        const wrap = document.getElementById("fullGalleryGrid");
+        if (!wrap) return;
+        wrap.innerHTML = GALLERY_IMAGES.map((img, idx) => `
+            <div class="gallery-card-item" onclick="openGalleryLightbox(${idx})">
+                <img src="images/gallery/${img}" alt="فلاحی خدمت ${idx+1}" class="gallery-card-img" loading="lazy">
+                <div class="gallery-card-tag">فلاحی سرگرمی #${idx+1}</div>
+            </div>
+        `).join('');
+    }
+
+    // Native App Screen Switcher with History Support
+    function switchAppScreen(screenName, addToHistory = true) {
+        if (addToHistory && screenHistory[screenHistory.length - 1] !== screenName) {
+            screenHistory.push(screenName);
+            window.history.pushState({ screen: screenName }, '');
+        }
+
+        document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active-screen'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+        const backBtn = document.getElementById('headerBackBtn');
+        if (screenName === 'home') {
+            document.getElementById('screenHome').classList.add('active-screen');
+            document.getElementById('navHome').classList.add('active');
+            if (backBtn) backBtn.style.visibility = 'hidden';
+        } else {
+            if (backBtn) backBtn.style.visibility = 'visible';
+            if (screenName === 'gallery') {
+                document.getElementById('screenGallery').classList.add('active-screen');
+                document.getElementById('navGallery').classList.add('active');
+            } else if (screenName === 'projects') {
+                document.getElementById('screenProjects').classList.add('active-screen');
+                document.getElementById('navProjects').classList.add('active');
+            } else if (screenName === 'donation') {
+                document.getElementById('screenDonation').classList.add('active-screen');
+                document.getElementById('navDonation').classList.add('active');
+            } else if (screenName === 'apply') {
+                document.getElementById('screenApply').classList.add('active-screen');
+                document.getElementById('navApply').classList.add('active');
+            }
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Back Button Handler
+    function goBackOrHome(pop = true) {
+        const lightbox = document.getElementById('imgLightbox');
+        if (lightbox && lightbox.style.display === 'flex') {
+            closeLightbox();
+            return;
+        }
+
+        const adminModal = document.getElementById('adminModalOverlay');
+        if (adminModal && adminModal.style.display === 'flex') {
+            closeAdminModal();
+            return;
+        }
+
+        if (screenHistory.length > 1) {
+            screenHistory.pop();
+            const prev = screenHistory[screenHistory.length - 1];
+            switchAppScreen(prev, false);
+        } else {
+            switchAppScreen('home', false);
+        }
+    }
+
+    // Direct Project selection
+    function openProjectDirect(projectName) {
+        switchAppScreen('apply');
+        document.getElementById('mAidCategory').value = projectName;
+        showToast(projectName + " منتخب کر لیا گیا ہے");
+        document.getElementById('mAidName').focus();
+    }
+
+    // Toggle Ration Checklist
+    function toggleRationItemBox(val) {
+        const box = document.getElementById('mRationChecklist');
+        box.style.display = val.includes('راشن') ? 'block' : 'none';
+    }
+
+    // Select Donation Type Radio
+    function selectDonType(type, elem) {
+        activeDonationType = type;
+        document.querySelectorAll('.radio-chip-label').forEach(l => l.classList.remove('selected'));
+        elem.classList.add('selected');
+    }
+
+    // Filter Category Tabs on Home
+    function filterHomeCategory(cat, btn) {
+        document.querySelectorAll('.cat-tab-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        showToast("فہرست اپڈیٹ ہو گئی");
+    }
+
+    // Filter Projects Search
+    function filterProjectsList() {
+        const query = document.getElementById('projectSearchInput').value.toLowerCase();
+        const items = document.querySelectorAll('.project-list-item');
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(query) ? 'flex' : 'none';
+        });
+    }
+
+    // Donation Form Submit
+    document.getElementById('mobileDonationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const refID = "DON-" + Date.now().toString().slice(-6);
+        const selectedRation = [];
+        document.querySelectorAll('input[name="mRationItem"]:checked').forEach(cb => selectedRation.push(cb.value));
+
+        const data = {
+            recordType: "عطیہ دہندہ (Donation)",
+            requestID: refID,
+            date: new Date().toLocaleDateString('ur-PK'),
+            name: document.getElementById('mDonorName').value.trim(),
+            phone: document.getElementById('mDonorPhone').value.trim(),
+            category: document.getElementById('mDonorCategory').value,
+            donType: activeDonationType,
+            rationItems: selectedRation.join('، ') || "درج نہیں",
+            amount: document.getElementById('mDonorAmount').value.trim() || "مخصوص نہیں",
+            paymentType: document.getElementById('mDonorPaymentType').value
+        };
+
+        saveRecord(data);
+        showToast("عطیہ فارم موصول ہو گیا! جزاک اللہ");
+        
+        const waMsg = `السلام علیکم! میں نے خیراُمہ ویلفیئر سوسائٹی ایپ پر عطیہ جمع کروایا ہے:%0A` +
+                      `📌 ریفرنس: ${refID}%0A` +
+                      `👤 نام: ${data.name}%0A` +
+                      `📱 فون: ${data.phone}%0A` +
+                      `📦 شعبہ: ${data.category} (${data.donType})%0A` +
+                      `💵 تفصیل/رقم: ${data.amount}%0A` +
+                      `💳 ادائیگی: ${data.paymentType}`;
+        window.open(`https://wa.me/923001582792?text=${waMsg}`, '_blank');
+        this.reset();
+    });
+
+    // Aid Form Submit
+    document.getElementById('mobileAidForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const refID = "KWS-" + Date.now().toString().slice(-6);
+
+        const data = {
+            recordType: "امداد کا طلبگار (Aid)",
+            requestID: refID,
+            date: new Date().toLocaleDateString('ur-PK'),
+            name: document.getElementById('mAidName').value.trim(),
+            phone: document.getElementById('mAidPhone').value.trim(),
+            city: document.getElementById('mAidCity').value.trim(),
+            category: document.getElementById('mAidCategory').value,
+            address: document.getElementById('mAidAddress').value.trim(),
+            problem: document.getElementById('mAidProblem').value.trim()
+        };
+
+        saveRecord(data);
+        showToast(`درخواست جمع ہو گئی! ریفرنس: ${refID}`);
+        this.reset();
+    });
+
+    function saveRecord(record) {
+        let list = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        list.unshift(record);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    }
+
+    // Lightbox for Gallery
+    function openGalleryLightbox(idx) {
+        currentLightboxList = GALLERY_IMAGES.map(img => `images/gallery/${img}`);
+        currentLightboxIdx = idx;
+        document.getElementById('lightboxImg').src = currentLightboxList[currentLightboxIdx];
+        document.getElementById('imgLightbox').style.display = 'flex';
+    }
+
+    function openLightbox(src) {
+        currentLightboxList = [src];
+        currentLightboxIdx = 0;
+        document.getElementById('lightboxImg').src = src;
+        document.getElementById('imgLightbox').style.display = 'flex';
+    }
+
+    function closeLightbox() {
+        document.getElementById('imgLightbox').style.display = 'none';
+    }
+
+    function prevLightboxImg() {
+        if (currentLightboxList.length <= 1) return;
+        currentLightboxIdx = (currentLightboxIdx - 1 + currentLightboxList.length) % currentLightboxList.length;
+        document.getElementById('lightboxImg').src = currentLightboxList[currentLightboxIdx];
+    }
+
+    function nextLightboxImg() {
+        if (currentLightboxList.length <= 1) return;
+        currentLightboxIdx = (currentLightboxIdx + 1) % currentLightboxList.length;
+        document.getElementById('lightboxImg').src = currentLightboxList[currentLightboxIdx];
+    }
+
+    // Toast
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.style.display = 'block';
+        setTimeout(() => { t.style.display = 'none'; }, 2600);
+    }
+
+    // Copy Text
+    function copyText(text, msg) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(msg || "کاپی ہو گیا!");
+        });
+    }
+
+    // Admin Modal
+    function openAdminModal() {
+        const list = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        document.getElementById('mRecordCount').textContent = `کل: ${list.length}`;
+        const wrap = document.getElementById('mAdminRecordsList');
+        if (list.length === 0) {
+            wrap.innerHTML = `<p style="text-align:center; color:#888; padding:15px;">کوئی ریکارڈ نہیں ہے۔</p>`;
+        } else {
+            wrap.innerHTML = list.map((r) => `
+                <div style="border-bottom:1px solid #f1f5f9; padding:8px 0;">
+                    <strong>[${r.requestID}]</strong> ${r.name} (${r.phone})<br>
+                    <span style="color:#a30000;">${r.category}</span> - ${r.date}
+                </div>
+            `).join('');
+        }
+        document.getElementById('adminModalOverlay').style.display = 'flex';
+    }
+
+    function closeAdminModal() {
+        document.getElementById('adminModalOverlay').style.display = 'none';
+    }
+
+    function exportCSV() {
+        const list = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        if (list.length === 0) { alert("کوئی ریکارڈ نہیں ہے"); return; }
+        let csv = "\uFEFFType,ID,Name,Phone,Category,Date\n";
+        list.forEach(r => {
+            csv += `"${r.recordType}","${r.requestID}","${r.name}","${r.phone}","${r.category}","${r.date}"\n`;
+        });
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `KhairUmmah_App_Records.csv`;
+        a.click();
+    }
+</script>
+
+</body>
+</html>
