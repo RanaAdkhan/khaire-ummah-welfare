@@ -84,7 +84,7 @@
             margin: 0 auto;
         }
 
-        /* Large Screen / PC Centering (only for large desktop monitors) */
+        /* Large Screen / PC Centering (only for desktop monitors) */
         @media (min-width: 768px) {
             body {
                 background: #e2e8f0;
@@ -101,7 +101,7 @@
             }
         }
 
-        /* TOP APP HEADER - 100% Full Width Edge-to-Edge */
+        /* TOP APP HEADER */
         .app-main-header {
             background: var(--app-header-grad);
             color: #ffffff;
@@ -804,6 +804,89 @@
             border-color: #a30000;
             background: #ffffff;
             box-shadow: 0 0 0 3px rgba(163, 0, 0, 0.12);
+        }
+
+        /* GPS LIVE LOCATION WIDGET */
+        .location-picker-box {
+            background: #f0fdf4;
+            border: 1.5px dashed #22c55e;
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        .location-picker-box.aid-mode {
+            background: #f0f9ff;
+            border-color: #0284c7;
+        }
+
+        .location-picker-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #166534;
+            margin-bottom: 6px;
+        }
+
+        .location-picker-box.aid-mode .location-picker-header {
+            color: #0369a1;
+        }
+
+        .location-picker-desc {
+            font-size: 13px;
+            color: #4b5563;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .btn-get-gps {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-get-gps:hover {
+            transform: scale(1.02);
+        }
+
+        .btn-get-gps.aid-color {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+        }
+
+        .location-status-badge {
+            display: none;
+            margin-top: 10px;
+            background: #ffffff;
+            border: 1px solid #86efac;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 13px;
+            color: #15803d;
+            text-align: right;
+            line-height: 1.4;
+        }
+
+        .location-status-badge a {
+            color: #0284c7;
+            font-weight: bold;
+            text-decoration: underline;
+            direction: ltr;
+            display: inline-block;
         }
 
         /* RADIO BUTTONS ROW */
@@ -1571,6 +1654,27 @@
                     </select>
                 </div>
 
+                <!-- GPS LIVE LOCATION OPTION (DONATION) -->
+                <div class="location-picker-box" id="donorLocationBox">
+                    <div class="location-picker-header">
+                        <i class="fa-solid fa-location-dot" style="color:#16a34a; font-size:18px;"></i>
+                        <span>لائیو لوکیشن شیئر کریں (Live GPS Location)</span>
+                    </div>
+                    <p class="location-picker-desc">اگر آپ راشن، سامان یا نقد عطیہ اپنے گھر سے وصول کروانا چاہتے ہیں تو نیچے بٹن دبا کر اپنی لائیو لوکیشن شامل کریں تاکہ ٹیم آسانی سے پہنچ سکے:</p>
+                    
+                    <button type="button" class="btn-get-gps" id="btnGetDonorGPS" onclick="fetchGPSLocation('donor')">
+                        <i class="fa-solid fa-crosshairs"></i> 📍 میری لائیو لوکیشن حاصل کریں
+                    </button>
+                    
+                    <input type="hidden" id="donorLocationUrl" value="">
+                    
+                    <div class="location-status-badge" id="donorLocationStatus">
+                        <div><i class="fa-solid fa-circle-check"></i> <strong>لوکیشن شامل ہو گئی!</strong></div>
+                        <div id="donorCoordsText" style="font-size:12px; color:#4b5563; margin-top:2px;"></div>
+                        <a href="#" id="donorMapPreviewLink" target="_blank">🗺️ گوگل میپ پر لوکیشن چیک کریں</a>
+                    </div>
+                </div>
+
                 <button type="submit" class="btn-app-submit">
                     <i class="fa-solid fa-heart"></i> عطیہ جمع کروائیں
                 </button>
@@ -1643,6 +1747,27 @@
                 <div class="app-input-group">
                     <label>مکمل رہائشی پتہ (Full Address):</label>
                     <textarea id="mAidAddress" class="app-input" placeholder="گھر کا نمبر، گلی، محلہ، قریبی مشہور جگہ" rows="2" required></textarea>
+                </div>
+
+                <!-- GPS LIVE LOCATION OPTION (AID APPLICANT) -->
+                <div class="location-picker-box aid-mode" id="aidLocationBox">
+                    <div class="location-picker-header">
+                        <i class="fa-solid fa-map-location-dot" style="color:#0284c7; font-size:18px;"></i>
+                        <span>لائیو لوکیشن پن شیئر کریں (Live GPS Map)</span>
+                    </div>
+                    <p class="location-picker-desc">امداد یا ایمبولینس ٹیم کو براہِ راست اپنے گھر تک بلانے کے لیے نیچے بٹن دبا کر لائیو لوکیشن شیئر فرمائیں:</p>
+                    
+                    <button type="button" class="btn-get-gps aid-color" id="btnGetAidGPS" onclick="fetchGPSLocation('aid')">
+                        <i class="fa-solid fa-crosshairs"></i> 📍 میری موجودہ لوکیشن حاصل کریں
+                    </button>
+                    
+                    <input type="hidden" id="aidLocationUrl" value="">
+                    
+                    <div class="location-status-badge" id="aidLocationStatus" style="border-color:#7dd3fc; color:#0369a1;">
+                        <div><i class="fa-solid fa-circle-check"></i> <strong>لوکیشن کامیابی سے محفوظ ہو گئی!</strong></div>
+                        <div id="aidCoordsText" style="font-size:12px; color:#4b5563; margin-top:2px;"></div>
+                        <a href="#" id="aidMapPreviewLink" target="_blank">🗺️ گوگل میپ پر چیک کریں</a>
+                    </div>
                 </div>
 
                 <div class="app-input-group">
@@ -1894,12 +2019,60 @@
         });
     }
 
+    // GPS Location Fetcher (Donor & Aid)
+    function fetchGPSLocation(target) {
+        const btn = target === 'donor' ? document.getElementById('btnGetDonorGPS') : document.getElementById('btnGetAidGPS');
+        const statusBox = target === 'donor' ? document.getElementById('donorLocationStatus') : document.getElementById('aidLocationStatus');
+        const coordsText = target === 'donor' ? document.getElementById('donorCoordsText') : document.getElementById('aidCoordsText');
+        const previewLink = target === 'donor' ? document.getElementById('donorMapPreviewLink') : document.getElementById('aidMapPreviewLink');
+        const inputUrl = target === 'donor' ? document.getElementById('donorLocationUrl') : document.getElementById('aidLocationUrl');
+
+        if (!navigator.geolocation) {
+            alert("معذرت، آپ کے براؤزر میں GPS لوکیشن کی سہولت موجود نہیں ہے۔");
+            return;
+        }
+
+        const originalBtnText = btn.innerHTML;
+        btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> لوکیشن تلاش ہو رہی ہے...`;
+        btn.disabled = true;
+
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                const accuracy = Math.round(position.coords.accuracy || 0);
+                const mapUrl = `https://maps.google.com/?q=${lat},${lng}`;
+
+                inputUrl.value = mapUrl;
+                coordsText.textContent = `عرض بلد و طول بلد: ${lat.toFixed(5)}, ${lng.toFixed(5)} (درستگی: ~${accuracy} میٹر)`;
+                previewLink.href = mapUrl;
+                statusBox.style.display = 'block';
+
+                btn.innerHTML = `<i class="fa-solid fa-check-circle"></i> ✅ لوکیشن محفوظ ہو گئی`;
+                btn.style.background = '#059669';
+                btn.disabled = false;
+                showToast("لوکیشن کامیابی سے شامل ہو گئی!");
+            },
+            (error) => {
+                btn.innerHTML = originalBtnText;
+                btn.disabled = false;
+                let msg = "لوکیشن حاصل نہیں ہو سکی۔ براہِ کرم براؤزر کی لوکیشن پرمیشن آن فرمائیں۔";
+                if (error.code === error.PERMISSION_DENIED) {
+                    msg = "براہِ کرم موبائل سیٹنگز یا براؤزر میں Location Allow / آن کریں۔";
+                }
+                alert(msg);
+            },
+            { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
+        );
+    }
+
     // Donation Form Submit
     document.getElementById('mobileDonationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const refID = "DON-" + Date.now().toString().slice(-6);
         const selectedRation = [];
         document.querySelectorAll('input[name="mRationItem"]:checked').forEach(cb => selectedRation.push(cb.value));
+        const locUrl = document.getElementById('donorLocationUrl').value.trim();
 
         const data = {
             recordType: "عطیہ دہندہ (Donation)",
@@ -1911,27 +2084,37 @@
             donType: activeDonationType,
             rationItems: selectedRation.join('، ') || "درج نہیں",
             amount: document.getElementById('mDonorAmount').value.trim() || "مخصوص نہیں",
-            paymentType: document.getElementById('mDonorPaymentType').value
+            paymentType: document.getElementById('mDonorPaymentType').value,
+            locationUrl: locUrl || "شامل نہیں کی گئی"
         };
 
         saveRecord(data);
         showToast("عطیہ فارم موصول ہو گیا! جزاک اللہ");
         
-        const waMsg = `السلام علیکم! میں نے خیراُمہ ویلفیئر سوسائٹی ایپ پر عطیہ جمع کروایا ہے:%0A` +
-                      `📌 ریفرنس: ${refID}%0A` +
-                      `👤 نام: ${data.name}%0A` +
-                      `📱 فون: ${data.phone}%0A` +
-                      `📦 شعبہ: ${data.category} (${data.donType})%0A` +
-                      `💵 تفصیل/رقم: ${data.amount}%0A` +
-                      `💳 ادائیگی: ${data.paymentType}`;
+        let waMsg = `السلام علیکم! میں نے خیراُمہ ویلفیئر سوسائٹی ایپ پر عطیہ جمع کروایا ہے:%0A` +
+                    `📌 ریفرنس: ${refID}%0A` +
+                    `👤 نام: ${data.name}%0A` +
+                    `📱 فون: ${data.phone}%0A` +
+                    `📦 شعبہ: ${data.category} (${data.donType})%0A` +
+                    `💵 تفصیل/رقم: ${data.amount}%0A` +
+                    `💳 ادائیگی: ${data.paymentType}`;
+        
+        if (locUrl) {
+            waMsg += `%0A📍 لائیو گوگل میپ لوکیشن:%0A${locUrl}`;
+        }
+
         window.open(`https://wa.me/923001582792?text=${waMsg}`, '_blank');
         this.reset();
+        document.getElementById('donorLocationStatus').style.display = 'none';
+        document.getElementById('btnGetDonorGPS').innerHTML = `<i class="fa-solid fa-crosshairs"></i> 📍 میری لائیو لوکیشن حاصل کریں`;
+        document.getElementById('donorLocationUrl').value = '';
     });
 
     // Aid Form Submit
     document.getElementById('mobileAidForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const refID = "KWS-" + Date.now().toString().slice(-6);
+        const locUrl = document.getElementById('aidLocationUrl').value.trim();
 
         const data = {
             recordType: "امداد کا طلبگار (Aid)",
@@ -1942,12 +2125,31 @@
             city: document.getElementById('mAidCity').value.trim(),
             category: document.getElementById('mAidCategory').value,
             address: document.getElementById('mAidAddress').value.trim(),
-            problem: document.getElementById('mAidProblem').value.trim()
+            problem: document.getElementById('mAidProblem').value.trim(),
+            locationUrl: locUrl || "شامل نہیں کی گئی"
         };
 
         saveRecord(data);
         showToast(`درخواست جمع ہو گئی! ریفرنس: ${refID}`);
+
+        let waMsg = `السلام علیکم! خیراُمہ ویلفیئر سوسائٹی پر امداد کی درخواست جمع کروائی گئی ہے:%0A` +
+                    `📌 ریفرنس: ${refID}%0A` +
+                    `👤 نام: ${data.name}%0A` +
+                    `📱 فون: ${data.phone}%0A` +
+                    `🏙️ شہر/علاقہ: ${data.city}%0A` +
+                    `📦 درکار مدد: ${data.category}%0A` +
+                    `🏠 پتہ: ${data.address}%0A` +
+                    `📝 تفصیل: ${data.problem}`;
+        
+        if (locUrl) {
+            waMsg += `%0A📍 لائیو گوگل میپ لوکیشن:%0A${locUrl}`;
+        }
+
+        window.open(`https://wa.me/923001582792?text=${waMsg}`, '_blank');
         this.reset();
+        document.getElementById('aidLocationStatus').style.display = 'none';
+        document.getElementById('btnGetAidGPS').innerHTML = `<i class="fa-solid fa-crosshairs"></i> 📍 میری موجودہ لوکیشن حاصل کریں`;
+        document.getElementById('aidLocationUrl').value = '';
     });
 
     function saveRecord(record) {
@@ -2014,6 +2216,7 @@
                 <div style="border-bottom:1px solid #f1f5f9; padding:8px 0;">
                     <strong>[${r.requestID}]</strong> ${r.name} (${r.phone})<br>
                     <span style="color:#a30000;">${r.category}</span> - ${r.date}
+                    ${r.locationUrl && r.locationUrl.includes('http') ? `<br><a href="${r.locationUrl}" target="_blank" style="color:#0284c7; font-size:12px;"><i class="fa-solid fa-map-pin"></i> 🗺️ گوگل میپ لوکیشن کھولیں</a>` : ''}
                 </div>
             `).join('');
         }
@@ -2027,9 +2230,9 @@
     function exportCSV() {
         const list = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
         if (list.length === 0) { alert("کوئی ریکارڈ نہیں ہے"); return; }
-        let csv = "\uFEFFType,ID,Name,Phone,Category,Date\n";
+        let csv = "\uFEFFType,ID,Name,Phone,Category,Date,LocationMapURL\n";
         list.forEach(r => {
-            csv += `"${r.recordType}","${r.requestID}","${r.name}","${r.phone}","${r.category}","${r.date}"\n`;
+            csv += `"${r.recordType}","${r.requestID}","${r.name}","${r.phone}","${r.category}","${r.date}","${r.locationUrl || ''}"\n`;
         });
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
         const url = URL.createObjectURL(blob);
