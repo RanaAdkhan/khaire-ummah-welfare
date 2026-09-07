@@ -276,7 +276,7 @@
         .hero-slider-container {
             position: relative;
             width: 100%;
-            height: 230px;
+            height: 235px;
             overflow: hidden;
         }
 
@@ -310,9 +310,9 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 70%, transparent 100%);
             color: #ffffff;
-            padding: 18px 14px 8px;
+            padding: 20px 14px 10px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -1346,76 +1346,112 @@
             </a>
         </div>
 
-        <!-- DYNAMIC HD FRONT HERO SLIDER (نئی اصل فیلڈ تصاویر) -->
+        <!-- DYNAMIC HD FRONT HERO SLIDER (9 اصل فیلڈ ایکٹو سلائیڈز) -->
         <div class="hero-slider-wrap">
             <div class="hero-slider-container" id="frontHeroSlider">
-                <!-- Slide 1: Boat Rescue -->
-                <div class="hero-slide active" onclick="openLightbox('images/gallery/field_boat_rescue.jpg')">
+                <!-- Slide 1: Official Ambulance Service -->
+                <div class="hero-slide active" onclick="openLightbox('images/gallery/field_ambulance_service.jpg')">
+                    <img src="images/gallery/field_ambulance_service.jpg" alt="ایمرجنسی ایمبولینس سروس">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-truck-medical"></i> 24 گھنٹے ایمرجنسی ایمبولینس سروس</h5>
+                            <p>مفت ایمبولینس و ابتدائی طبی امداد - خیراُمہ ویلفیئر</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Night Silent Ration Delivery -->
+                <div class="hero-slide" onclick="openLightbox('images/gallery/field_night_ration_delivery.jpg')">
+                    <img src="images/gallery/field_night_ration_delivery.jpg" alt="خاموش راشن ترسیل">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-hand-holding-heart"></i> مستحقین تک باعزت راشن ترسیل</h5>
+                            <p>رات کے وقت خاموشی سے گھروں تک راشن کی فراہمی</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Boat Rescue Mission -->
+                <div class="hero-slide" onclick="openLightbox('images/gallery/field_boat_rescue.jpg')">
                     <img src="images/gallery/field_boat_rescue.jpg" alt="سیلاب ریلیف و ریسکیو">
                     <div class="hero-slide-caption">
                         <div>
-                            <h5><i class="fa-solid fa-life-ring"></i> سیلاب ریلیف و ایمرجنسی ریسکیو</h5>
-                            <p>خیراُمہ ریسکیو ٹیم متاثرہ علاقوں میں سرگرم</p>
+                            <h5><i class="fa-solid fa-life-ring"></i> سیلاب ریلیف و ریسکیو مشن</h5>
+                            <p>کشتیوں کے ذریعے متاثرہ علاقوں میں ریسکیو اور راشن</p>
                         </div>
                         <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
                     </div>
                 </div>
 
-                <!-- Slide 2: Food Cooking -->
+                <!-- Slide 4: Flood Ration Packing 2025 -->
+                <div class="hero-slide" onclick="openLightbox('images/gallery/field_flood_ration_packing.jpg')">
+                    <img src="images/gallery/field_flood_ration_packing.jpg" alt="سیلاب زدگان امداد">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-box-archive"></i> سیلاب متاثرین کے لیے راشن بیگز</h5>
+                            <p>الحمدللہ آپ کی امانت مستحقین کے ہاتھوں تک</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Loader Rickshaw Delivery Convoy -->
+                <div class="hero-slide" onclick="openLightbox('images/gallery/field_loader_distribution.jpg')">
+                    <img src="images/gallery/field_loader_distribution.jpg" alt="راشن ترسیل کانوائے">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-truck-ramp-box"></i> راشن ترسیل کانوائے</h5>
+                            <p>لوڈر گاڑیوں کے ذریعے دیہاتوں تک خوراک کی فراہمی</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Food Cooking Langar -->
                 <div class="hero-slide" onclick="openLightbox('images/gallery/field_food_cooking.jpg')">
-                    <img src="images/gallery/field_food_cooking.jpg" alt="لنگر و کھانا تقسیم">
+                    <img src="images/gallery/field_food_cooking.jpg" alt="گرم لنگر و کھانا">
                     <div class="hero-slide-caption">
                         <div>
-                            <h5><i class="fa-solid fa-utensils"></i> گرم کھانا و لنگر تقسیم</h5>
-                            <p>مستحقین و بے گھر افراد میں کھانا تقسیم</p>
+                            <h5><i class="fa-solid fa-utensils"></i> گرم کھانا و روزانہ لنگر عام</h5>
+                            <p>بے گھر افراد اور مسافروں کے لیے تازہ کھانا</p>
                         </div>
                         <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
                     </div>
                 </div>
 
-                <!-- Slide 3: Ration Store -->
-                <div class="hero-slide" onclick="openLightbox('images/gallery/field_ration_store.jpg')">
-                    <img src="images/gallery/field_ration_store.jpg" alt="راشن پیکنگ">
-                    <div class="hero-slide-caption">
-                        <div>
-                            <h5><i class="fa-solid fa-box-open"></i> ماہانہ راشن پیکج تیاری</h5>
-                            <p>معیاری راشن بیگز کی پیکنگ اور ترسیل</p>
-                        </div>
-                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
-                    </div>
-                </div>
-
-                <!-- Slide 4: Clean Water -->
+                <!-- Slide 7: Clean Water Hand Pump -->
                 <div class="hero-slide" onclick="openLightbox('images/gallery/field_clean_water.jpg')">
-                    <img src="images/gallery/field_clean_water.jpg" alt="صاف پانی پروجیکٹ">
+                    <img src="images/gallery/field_clean_water.jpg" alt="پینے کا صاف پانی">
                     <div class="hero-slide-caption">
                         <div>
-                            <h5><i class="fa-solid fa-hand-holding-droplet"></i> پینے کا صاف پانی پروجیکٹس</h5>
-                            <p>دیہاتوں میں فلٹریشن پلانٹس اور ہینڈ پمپ</p>
+                            <h5><i class="fa-solid fa-hand-holding-droplet"></i> پینے کا صاف پانی پراجیکٹس</h5>
+                            <p>دیہاتوں میں پائپ لائنز اور ہینڈ پمپس کی تنصیب</p>
                         </div>
                         <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
                     </div>
                 </div>
 
-                <!-- Slide 5: Community Aid -->
-                <div class="hero-slide" onclick="openLightbox('images/gallery/field_community_aid.jpg')">
-                    <img src="images/gallery/field_community_aid.jpg" alt="عوامی سروے">
+                <!-- Slide 8: Store Ration Preparation -->
+                <div class="hero-slide" onclick="openLightbox('images/gallery/field_ration_store.jpg')">
+                    <img src="images/gallery/field_ration_store.jpg" alt="راشن تیاری">
                     <div class="hero-slide-caption">
                         <div>
-                            <h5><i class="fa-solid fa-hands-holding-child"></i> فیلڈ سروے و عوامی امداد</h5>
-                            <p>ضرورت مند گھرانوں کی باقاعدہ جانچ پڑتال</p>
+                            <h5><i class="fa-solid fa-scale-balanced"></i> معیاری راشن اشیاء کی تیاری</h5>
+                            <p>آٹا، گھی، دالیں، چاول کی شفاف وزن و پیکنگ</p>
                         </div>
                         <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
                     </div>
                 </div>
 
-                <!-- Slide 6: Official Poster -->
+                <!-- Slide 9: Official Poster -->
                 <div class="hero-slide" onclick="openLightbox('images/showcase.jpg')">
-                    <img src="images/showcase.jpg" alt="خیراُمہ مکمل بروشر">
+                    <img src="images/showcase.jpg" alt="خیراُمہ بروشر">
                     <div class="hero-slide-caption">
                         <div>
                             <h5><i class="fa-solid fa-certificate"></i> خیراُمہ فلاحی بروشر</h5>
-                            <p>تمام شعبہ جات کی مکمل تفصیلات</p>
+                            <p>دارالتقویٰ ٹرسٹ - جملہ خدمات کا جامع تعارف</p>
                         </div>
                         <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
                     </div>
@@ -1435,7 +1471,7 @@
             <div class="gallery-header-row">
                 <h4><i class="fa-solid fa-images"></i> فلاحی خدمات کی تصویری جھلکیاں</h4>
                 <button class="btn-view-all-gallery" onclick="switchAppScreen('gallery')">
-                    تمام 45+ تصاویر <i class="fa-solid fa-chevron-left"></i>
+                    تمام 50+ تصاویر <i class="fa-solid fa-chevron-left"></i>
                 </button>
             </div>
             <div class="gallery-scroll-container" id="homeGalleryScroll"></div>
@@ -1453,7 +1489,7 @@
             
             <!-- 1. راشن پیکج (Ration) -->
             <div class="app-grid-card" onclick="openProjectDirect('راشن پیکج')">
-                <div class="card-bg-photo" style="background-image: url('images/gallery/field_ration_store.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_night_ration_delivery.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon bg-orange">
@@ -1503,9 +1539,9 @@
                 </div>
             </div>
 
-            <!-- 5. ایمبولینس و ریسکیو (Ambulance & Rescue) -->
+            <!-- 5. ایمبولینس و ریسکیو (Real Ambulance Photo) -->
             <div class="app-grid-card" onclick="openProjectDirect('ایمبولینس سروس')">
-                <div class="card-bg-photo" style="background-image: url('images/gallery/field_boat_rescue.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_ambulance_service.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon bg-red">
@@ -1529,7 +1565,7 @@
                 </div>
             </div>
 
-            <!-- 7. عطیہ قربانی و لنگر (Atiya Qurbani & Langar) -->
+            <!-- 7. عطیہ قربانی و لنگر (Atiya Qurbani & Food) -->
             <div class="app-grid-card" onclick="openProjectDirect('عطیہ قربانی')">
                 <div class="card-bg-photo" style="background-image: url('images/gallery/field_food_cooking.jpg');"></div>
                 <div class="card-bg-overlay"></div>
@@ -1542,9 +1578,9 @@
                 </div>
             </div>
 
-            <!-- 8. تصویری گیلری (Live Gallery) -->
+            <!-- 8. تصویری گیلری (Live Gallery - Loader Convoy) -->
             <div class="app-grid-card" onclick="switchAppScreen('gallery')">
-                <div class="card-bg-photo" style="background-image: url('images/gallery/field_boat_rescue.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_loader_distribution.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon bg-gold">
@@ -1555,9 +1591,9 @@
                 </div>
             </div>
 
-            <!-- 9. درخواست امداد (Apply Aid) -->
+            <!-- 9. درخواست امداد (Apply Aid - Flood Relief Packing) -->
             <div class="app-grid-card" onclick="switchAppScreen('apply')">
-                <div class="card-bg-photo" style="background-image: url('images/gallery/field_community_aid.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_flood_ration_packing.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon" style="background: linear-gradient(135deg, #475569 0%, #1e293b 100%);">
@@ -1597,7 +1633,7 @@
                 <button class="screen-back-action-btn" onclick="goBackOrHome()">
                     <i class="fa-solid fa-arrow-right"></i> ہوم پر واپس
                 </button>
-                <span style="font-size: 14px; color: var(--text-muted);">45+ فیلڈ سرگرمیاں</span>
+                <span style="font-size: 14px; color: var(--text-muted);">50+ فیلڈ سرگرمیاں</span>
             </div>
 
             <h3 style="font-size: 24px; font-weight: 800; color: #a30000; margin-bottom: 6px;">ہماری خدمات و تصویری گیلری</h3>
@@ -2014,12 +2050,16 @@
     let activeDonationType = "Zakat";
     let screenHistory = ['home'];
 
-    // Gallery images including newly uploaded authentic field photos at the top
+    // Gallery images including all 9 newly uploaded authentic field photos at the top
     const GALLERY_IMAGES = [
+        "field_ambulance_service.jpg",
+        "field_night_ration_delivery.jpg",
         "field_boat_rescue.jpg",
+        "field_flood_ration_packing.jpg",
+        "field_loader_distribution.jpg",
         "field_food_cooking.jpg",
-        "field_ration_store.jpg",
         "field_clean_water.jpg",
+        "field_ration_store.jpg",
         "field_community_aid.jpg",
         "IMG-20260329-WA0115.jpg", "IMG-20260329-WA0125.jpg", "IMG-20260329-WA0151.jpg", 
         "IMG-20260329-WA0154.jpg", "IMG-20260329-WA0170.jpg", "IMG-20260329-WA0179.jpg", 
@@ -2454,7 +2494,7 @@
         if (list.length === 0) { alert("کوئی ریکارڈ نہیں ہے"); return; }
         let csv = "\uFEFFType,ID,Name,Phone,Category,Date,LocationMapURL\n";
         list.forEach(r => {
-            csv += `"${r.recordType}","${r.requestID}","${r.name}","${r.phone}","${r.category}","${r.date}","${r.locationUrl || ''}"\n`;
+            csv += `"${r.recordType}","${r.requestID}","${r.name}","${r.phone}","${r.category}","${r.date}"\n`;
         });
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
         const url = URL.createObjectURL(blob);
