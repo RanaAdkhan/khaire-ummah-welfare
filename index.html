@@ -71,7 +71,7 @@
             align-items: center;
         }
 
-        /* 100% FULL-BLEED MOBILE LAYOUT - NO EMPTY GAPS */
+        /* 100% FULL-BLEED MOBILE LAYOUT */
         .app-shell {
             width: 100%;
             min-height: 100vh;
@@ -84,7 +84,7 @@
             margin: 0 auto;
         }
 
-        /* Large Screen / PC Centering (only for desktop monitors) */
+        /* Large Screen / PC Centering */
         @media (min-width: 768px) {
             body {
                 background: #e2e8f0;
@@ -262,41 +262,126 @@
             transform: translateY(-2px);
         }
 
-        /* HD HERO POSTER */
-        .hero-poster-box {
+        /* DYNAMIC FRONT HERO SLIDER */
+        .hero-slider-wrap {
             margin: 0 14px 16px;
             border-radius: 18px;
             overflow: hidden;
             box-shadow: var(--app-shadow);
             border: 2px solid #e2e8f0;
-            background: #ffffff;
+            background: #000000;
             position: relative;
+        }
+
+        .hero-slider-container {
+            position: relative;
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease;
+            transform: scale(1.04);
             cursor: pointer;
         }
 
-        .hero-poster-img {
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 2;
+        }
+
+        .hero-slide img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            transition: transform 0.3s ease;
         }
 
-        .hero-poster-box:hover .hero-poster-img {
-            transform: scale(1.02);
-        }
-
-        .hero-poster-badge {
+        .hero-slide-caption {
             position: absolute;
-            bottom: 8px;
-            right: 8px;
-            background: rgba(0,0,0,0.75);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
             color: #ffffff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 13px;
+            padding: 18px 14px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 3;
+        }
+
+        .hero-slide-caption h5 {
+            font-size: 16px;
+            font-weight: 800;
+            color: #fef08a;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero-slide-caption p {
+            font-size: 12px;
+            color: #f1f5f9;
+            margin-top: 1px;
+        }
+
+        .hero-slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+            font-size: 16px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.2s;
+        }
+
+        .hero-slider-btn:hover {
+            background: rgba(163,0,0,0.85);
+        }
+
+        .hero-slider-btn.prev { right: 8px; }
+        .hero-slider-btn.next { left: 8px; }
+
+        .hero-slider-dots {
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
             gap: 6px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .slider-dot.active {
+            width: 22px;
+            border-radius: 10px;
+            background: #f59e0b;
         }
 
         /* CATEGORY TABS */
@@ -1261,12 +1346,88 @@
             </a>
         </div>
 
-        <!-- HD HERO POSTER -->
-        <div class="hero-poster-box" onclick="openLightbox('images/showcase.jpg')" title="بڑا کر کے دیکھنے کے لیے کلک کریں">
-            <img src="images/showcase.jpg" alt="خیراُمہ ویلفیئر سوسائٹی مکمل پوسٹر" class="hero-poster-img">
-            <div class="hero-poster-badge">
-                <i class="fa-solid fa-expand"></i> فل اسکرین ایچ ڈی دیکھیں
+        <!-- DYNAMIC HD FRONT HERO SLIDER (نئی اصل فیلڈ تصاویر) -->
+        <div class="hero-slider-wrap">
+            <div class="hero-slider-container" id="frontHeroSlider">
+                <!-- Slide 1: Boat Rescue -->
+                <div class="hero-slide active" onclick="openLightbox('images/gallery/field_boat_rescue.jpg')">
+                    <img src="images/gallery/field_boat_rescue.jpg" alt="سیلاب ریلیف و ریسکیو">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-life-ring"></i> سیلاب ریلیف و ایمرجنسی ریسکیو</h5>
+                            <p>خیراُمہ ریسکیو ٹیم متاثرہ علاقوں میں سرگرم</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Food Cooking -->
+                <div class="hero-slide" onclick="openLightbox('images/gallery/field_food_cooking.jpg')">
+                    <img src="images/gallery/field_food_cooking.jpg" alt="لنگر و کھانا تقسیم">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-utensils"></i> گرم کھانا و لنگر تقسیم</h5>
+                            <p>مستحقین و بے گھر افراد میں کھانا تقسیم</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Ration Store -->
+                <div class="hero-slide" onclick="openLightbox('images/gallery/field_ration_store.jpg')">
+                    <img src="images/gallery/field_ration_store.jpg" alt="راشن پیکنگ">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-box-open"></i> ماہانہ راشن پیکج تیاری</h5>
+                            <p>معیاری راشن بیگز کی پیکنگ اور ترسیل</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Clean Water -->
+                <div class="hero-slide" onclick="openLightbox('images/gallery/field_clean_water.jpg')">
+                    <img src="images/gallery/field_clean_water.jpg" alt="صاف پانی پروجیکٹ">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-hand-holding-droplet"></i> پینے کا صاف پانی پروجیکٹس</h5>
+                            <p>دیہاتوں میں فلٹریشن پلانٹس اور ہینڈ پمپ</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Community Aid -->
+                <div class="hero-slide" onclick="openLightbox('images/gallery/field_community_aid.jpg')">
+                    <img src="images/gallery/field_community_aid.jpg" alt="عوامی سروے">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-hands-holding-child"></i> فیلڈ سروے و عوامی امداد</h5>
+                            <p>ضرورت مند گھرانوں کی باقاعدہ جانچ پڑتال</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Official Poster -->
+                <div class="hero-slide" onclick="openLightbox('images/showcase.jpg')">
+                    <img src="images/showcase.jpg" alt="خیراُمہ مکمل بروشر">
+                    <div class="hero-slide-caption">
+                        <div>
+                            <h5><i class="fa-solid fa-certificate"></i> خیراُمہ فلاحی بروشر</h5>
+                            <p>تمام شعبہ جات کی مکمل تفصیلات</p>
+                        </div>
+                        <span style="font-size:12px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:12px;"><i class="fa-solid fa-expand"></i> HD</span>
+                    </div>
+                </div>
             </div>
+
+            <!-- Slider Arrows -->
+            <button class="hero-slider-btn prev" onclick="prevHeroSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="hero-slider-btn next" onclick="nextHeroSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+
+            <!-- Dots Indicator -->
+            <div class="hero-slider-dots" id="heroSliderDots"></div>
         </div>
 
         <!-- SERVICES & ACTIVITIES GALLERY CAROUSEL PREVIEW -->
@@ -1274,7 +1435,7 @@
             <div class="gallery-header-row">
                 <h4><i class="fa-solid fa-images"></i> فلاحی خدمات کی تصویری جھلکیاں</h4>
                 <button class="btn-view-all-gallery" onclick="switchAppScreen('gallery')">
-                    تمام 40+ تصاویر <i class="fa-solid fa-chevron-left"></i>
+                    تمام 45+ تصاویر <i class="fa-solid fa-chevron-left"></i>
                 </button>
             </div>
             <div class="gallery-scroll-container" id="homeGalleryScroll"></div>
@@ -1292,7 +1453,7 @@
             
             <!-- 1. راشن پیکج (Ration) -->
             <div class="app-grid-card" onclick="openProjectDirect('راشن پیکج')">
-                <div class="card-bg-photo" style="background-image: url('images/slider/slide_ration.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_ration_store.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon bg-orange">
@@ -1331,7 +1492,7 @@
 
             <!-- 4. صاف پانی (Clean Water) -->
             <div class="app-grid-card" onclick="openProjectDirect('صاف پانی')">
-                <div class="card-bg-photo" style="background-image: url('images/slider/slide_water_filter.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_clean_water.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon bg-teal">
@@ -1342,16 +1503,16 @@
                 </div>
             </div>
 
-            <!-- 5. ایمبولینس سروس (Ambulance) -->
+            <!-- 5. ایمبولینس و ریسکیو (Ambulance & Rescue) -->
             <div class="app-grid-card" onclick="openProjectDirect('ایمبولینس سروس')">
-                <div class="card-bg-photo" style="background-image: url('images/slider/slide_ambulance.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_boat_rescue.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon bg-red">
                         <i class="fa-solid fa-truck-medical"></i>
                     </div>
-                    <div class="grid-card-title">ایمبولینس</div>
-                    <div class="grid-card-eng">Ambulance</div>
+                    <div class="grid-card-title">ایمبولینس و ریسکیو</div>
+                    <div class="grid-card-eng">Ambulance & Rescue</div>
                 </div>
             </div>
 
@@ -1368,22 +1529,22 @@
                 </div>
             </div>
 
-            <!-- 7. عطیہ قربانی (Atiya Qurbani) -->
+            <!-- 7. عطیہ قربانی و لنگر (Atiya Qurbani & Langar) -->
             <div class="app-grid-card" onclick="openProjectDirect('عطیہ قربانی')">
-                <div class="card-bg-photo" style="background-image: url('images/slider/slide_qurbani.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_food_cooking.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon bg-rose">
                         <i class="fa-solid fa-drumstick-bite"></i>
                     </div>
-                    <div class="grid-card-title">عطیہ قربانی</div>
-                    <div class="grid-card-eng">Atiya Qurbani</div>
+                    <div class="grid-card-title">عطیہ قربانی و کھانا</div>
+                    <div class="grid-card-eng">Qurbani & Langar</div>
                 </div>
             </div>
 
             <!-- 8. تصویری گیلری (Live Gallery) -->
             <div class="app-grid-card" onclick="switchAppScreen('gallery')">
-                <div class="card-bg-photo" style="background-image: url('images/gallery/IMG-20260329-WA0115.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_boat_rescue.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon bg-gold">
@@ -1396,7 +1557,7 @@
 
             <!-- 9. درخواست امداد (Apply Aid) -->
             <div class="app-grid-card" onclick="switchAppScreen('apply')">
-                <div class="card-bg-photo" style="background-image: url('images/slider/slide_building.jpg');"></div>
+                <div class="card-bg-photo" style="background-image: url('images/gallery/field_community_aid.jpg');"></div>
                 <div class="card-bg-overlay"></div>
                 <div class="card-inner-content">
                     <div class="grid-circle-icon" style="background: linear-gradient(135deg, #475569 0%, #1e293b 100%);">
@@ -1436,11 +1597,11 @@
                 <button class="screen-back-action-btn" onclick="goBackOrHome()">
                     <i class="fa-solid fa-arrow-right"></i> ہوم پر واپس
                 </button>
-                <span style="font-size: 14px; color: var(--text-muted);">40+ فیلڈ سرگرمیاں</span>
+                <span style="font-size: 14px; color: var(--text-muted);">45+ فیلڈ سرگرمیاں</span>
             </div>
 
             <h3 style="font-size: 24px; font-weight: 800; color: #a30000; margin-bottom: 6px;">ہماری خدمات و تصویری گیلری</h3>
-            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">خیراُمہ ویلفیئر سوسائٹی کے مختلف فلاحی منصوبوں اور راشن تقسیم کی تصاویر</p>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">خیراُمہ ویلفیئر سوسائٹی کے مختلف فلاحی منصوبوں اور فیلڈ ریلیف کی اصل تصاویر</p>
 
             <!-- Google Drive Cloud Banner Link -->
             <div class="drive-link-banner">
@@ -1528,8 +1689,8 @@
                     <div class="project-item-left">
                         <span class="project-item-icon" style="color:#dc2626;">🚑</span>
                         <div>
-                            <div class="project-item-title">24 گھنٹے ایمرجنسی ایمبولینس</div>
-                            <div class="project-item-desc">Emergency Ambulance Service</div>
+                            <div class="project-item-title">24 گھنٹے ایمرجنسی ایمبولینس و ریسکیو</div>
+                            <div class="project-item-desc">Emergency Ambulance & Rescue</div>
                         </div>
                     </div>
                     <i class="fa-solid fa-chevron-left project-arrow"></i>
@@ -1550,8 +1711,8 @@
                     <div class="project-item-left">
                         <span class="project-item-icon" style="color:#e11d48;">🥩</span>
                         <div>
-                            <div class="project-item-title">عطیہ قربانی گوشت تقسیم</div>
-                            <div class="project-item-desc">Atiya Qurbani Meat Project</div>
+                            <div class="project-item-title">عطیہ قربانی و گرم کھانا تقسیم</div>
+                            <div class="project-item-desc">Atiya Qurbani & Langar Project</div>
                         </div>
                     </div>
                     <i class="fa-solid fa-chevron-left project-arrow"></i>
@@ -1853,8 +2014,13 @@
     let activeDonationType = "Zakat";
     let screenHistory = ['home'];
 
-    // 40 Gallery image files downloaded from Google Drive
+    // Gallery images including newly uploaded authentic field photos at the top
     const GALLERY_IMAGES = [
+        "field_boat_rescue.jpg",
+        "field_food_cooking.jpg",
+        "field_ration_store.jpg",
+        "field_clean_water.jpg",
+        "field_community_aid.jpg",
         "IMG-20260329-WA0115.jpg", "IMG-20260329-WA0125.jpg", "IMG-20260329-WA0151.jpg", 
         "IMG-20260329-WA0154.jpg", "IMG-20260329-WA0170.jpg", "IMG-20260329-WA0179.jpg", 
         "IMG-20260329-WA0206.jpg", "IMG-20260329-WA0209.jpg", "IMG-20260329-WA0214.jpg", 
@@ -1873,12 +2039,15 @@
 
     let currentLightboxList = [];
     let currentLightboxIdx = 0;
+    let heroCurrentSlide = 0;
+    let heroSlideTimer = null;
 
     // Initialize on Load
     document.addEventListener("DOMContentLoaded", () => {
         const d = new Date();
         document.getElementById("currentLiveDate").textContent = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         
+        initHeroSlider();
         renderHomeGalleryPreview();
         renderFullGalleryGrid();
 
@@ -1901,6 +2070,59 @@
         });
     });
 
+    // Front Hero Slider Setup
+    function initHeroSlider() {
+        const slides = document.querySelectorAll('.hero-slide');
+        const dotsContainer = document.getElementById('heroSliderDots');
+        if (!dotsContainer || slides.length === 0) return;
+
+        dotsContainer.innerHTML = Array.from(slides).map((_, i) => `
+            <div class="slider-dot ${i === 0 ? 'active' : ''}" onclick="goToHeroSlide(${i})"></div>
+        `).join('');
+
+        startHeroAutoSlide();
+    }
+
+    function showHeroSlide(index) {
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        if (slides.length === 0) return;
+
+        if (index >= slides.length) heroCurrentSlide = 0;
+        else if (index < 0) heroCurrentSlide = slides.length - 1;
+        else heroCurrentSlide = index;
+
+        slides.forEach((s, i) => s.classList.toggle('active', i === heroCurrentSlide));
+        dots.forEach((d, i) => d.classList.toggle('active', i === heroCurrentSlide));
+    }
+
+    function nextHeroSlide() {
+        showHeroSlide(heroCurrentSlide + 1);
+        resetHeroAutoSlide();
+    }
+
+    function prevHeroSlide() {
+        showHeroSlide(heroCurrentSlide - 1);
+        resetHeroAutoSlide();
+    }
+
+    function goToHeroSlide(index) {
+        showHeroSlide(index);
+        resetHeroAutoSlide();
+    }
+
+    function startHeroAutoSlide() {
+        if (heroSlideTimer) clearInterval(heroSlideTimer);
+        heroSlideTimer = setInterval(() => {
+            showHeroSlide(heroCurrentSlide + 1);
+        }, 4000);
+    }
+
+    function resetHeroAutoSlide() {
+        clearInterval(heroSlideTimer);
+        startHeroAutoSlide();
+    }
+
     // Render Home Horizontal Preview
     function renderHomeGalleryPreview() {
         const wrap = document.getElementById("homeGalleryScroll");
@@ -1917,7 +2139,7 @@
         if (!wrap) return;
         wrap.innerHTML = GALLERY_IMAGES.map((img, idx) => `
             <div class="gallery-card-item" onclick="openGalleryLightbox(${idx})">
-                <img src="images/gallery/${img}" alt="فلاحی خدمت ${idx+1}" class="gallery-card-img" loading="lazy">
+                <img src="images/gallery/${img}" alt="فلاحی سرگرمی ${idx+1}" class="gallery-card-img" loading="lazy">
                 <div class="gallery-card-tag">فلاحی سرگرمی #${idx+1}</div>
             </div>
         `).join('');
