@@ -1478,7 +1478,7 @@
             <div class="gallery-header-row">
                 <h4><i class="fa-solid fa-images"></i> فلاحی خدمات کی تصویری جھلکیاں</h4>
                 <button class="btn-view-all-gallery" onclick="switchAppScreen('gallery')">
-                    تمام 50+ تصاویر <i class="fa-solid fa-chevron-left"></i>
+                    تمام تصویری البم <i class="fa-solid fa-chevron-left"></i>
                 </button>
             </div>
             <div class="gallery-scroll-container" id="homeGalleryScroll"></div>
@@ -1640,7 +1640,7 @@
                 <button class="screen-back-action-btn" onclick="goBackOrHome()">
                     <i class="fa-solid fa-arrow-right"></i> ہوم پر واپس
                 </button>
-                <span style="font-size: 14px; color: var(--text-muted);">50+ فیلڈ سرگرمیاں</span>
+                <span style="font-size: 14px; color: var(--text-muted); font-weight: bold;">فیلڈ ریلیف تصویری البم</span>
             </div>
 
             <h3 style="font-size: 24px; font-weight: 800; color: #006039; margin-bottom: 6px;">ہماری خدمات و تصویری گیلری</h3>
@@ -2057,31 +2057,19 @@
     let activeDonationType = "Zakat";
     let screenHistory = ['home'];
 
-    // Gallery images with Master Overview Graphic at #1 and authentic field photos
-    const GALLERY_IMAGES = [
-        "khair_ummah_departments.jpg",
-        "field_ambulance_service.jpg",
-        "field_flood_ration_packing.jpg",
-        "field_ration_store.jpg",
-        "field_clean_water.jpg",
-        "field_food_cooking.jpg",
-        "field_boat_rescue.jpg",
-        "field_loader_distribution.jpg",
-        "IMG-20260329-WA0115.jpg", "IMG-20260329-WA0125.jpg", "IMG-20260329-WA0151.jpg", 
-        "IMG-20260329-WA0154.jpg", "IMG-20260329-WA0170.jpg", "IMG-20260329-WA0179.jpg", 
-        "IMG-20260329-WA0206.jpg", "IMG-20260329-WA0209.jpg", "IMG-20260329-WA0214.jpg", 
-        "IMG-20260329-WA0221.jpg", "IMG-20260329-WA0229.jpg", "IMG-20260329-WA0242.jpg", 
-        "IMG-20260329-WA0255.jpg", "IMG-20260329-WA0257.jpg", "IMG-20260329-WA0259.jpg", 
-        "IMG-20260329-WA0260.jpg", "IMG-20260329-WA0271.jpg", "IMG-20260329-WA0278.jpg", 
-        "IMG-20260329-WA0291.jpg", "IMG-20260329-WA0292.jpg", "IMG-20260329-WA0294.jpg", 
-        "IMG-20260329-WA0296.jpg", "IMG-20260329-WA0305.jpg", "IMG-20260329-WA0311.jpg", 
-        "IMG-20260329-WA0328.jpg", "IMG-20260329-WA0334.jpg", "IMG-20260329-WA0340.jpg", 
-        "IMG-20260329-WA0352.jpg", "IMG-20260329-WA0369.jpg", "IMG-20260329-WA0372.jpg", 
-        "IMG-20260329-WA0374.jpg", "IMG-20260329-WA0375.jpg", "IMG-20260329-WA0376.jpg", 
-        "IMG-20260329-WA0378.jpg", "IMG-20260329-WA0382.jpg", "IMG-20260329-WA0383.jpg", 
-        "IMG-20260329-WA0385.jpg", "IMG-20260329-WA0394.jpg", "IMG-20260329-WA0419.jpg", 
-        "IMG-20260402-WA0139.jpg"
+    // Official Verified Khair-e-Ummah Gallery Items (Old archive photos 11 to 48 completely removed)
+    const GALLERY_ITEMS = [
+        { file: "khair_ummah_departments.jpg", title: "خیراُمہ جملہ فلاحی شعبہ جات" },
+        { file: "field_ambulance_service.jpg", title: "24 گھنٹے ایمرجنسی ایمبولینس سروس" },
+        { file: "field_flood_ration_packing.jpg", title: "فلڈ ریلیف راشن بیگز 2025" },
+        { file: "field_ration_store.jpg", title: "راشن تیاری و مرکزی گودام" },
+        { file: "field_clean_water.jpg", title: "پینے کا صاف پانی پراجیکٹ" },
+        { file: "field_food_cooking.jpg", title: "پکا ہوا گرم کھانا و طعام" },
+        { file: "field_boat_rescue.jpg", title: "سیلاب ریسکیو و امدادی مشن" },
+        { file: "field_loader_distribution.jpg", title: "راشن کانوائے ترسیل" }
     ];
+
+    const GALLERY_IMAGES = GALLERY_ITEMS.map(item => item.file);
 
     let currentLightboxList = [];
     let currentLightboxIdx = 0;
@@ -2173,9 +2161,8 @@
     function renderHomeGalleryPreview() {
         const wrap = document.getElementById("homeGalleryScroll");
         if (!wrap) return;
-        const previewImgs = GALLERY_IMAGES.slice(0, 10);
-        wrap.innerHTML = previewImgs.map((img, idx) => `
-            <img src="images/gallery/${img}" alt="سرگرمی" class="gallery-preview-thumb" onclick="openGalleryLightbox(${idx})">
+        wrap.innerHTML = GALLERY_ITEMS.map((item, idx) => `
+            <img src="images/gallery/${item.file}" alt="${item.title}" class="gallery-preview-thumb" onclick="openGalleryLightbox(${idx})">
         `).join('');
     }
 
@@ -2183,10 +2170,10 @@
     function renderFullGalleryGrid() {
         const wrap = document.getElementById("fullGalleryGrid");
         if (!wrap) return;
-        wrap.innerHTML = GALLERY_IMAGES.map((img, idx) => `
+        wrap.innerHTML = GALLERY_ITEMS.map((item, idx) => `
             <div class="gallery-card-item" onclick="openGalleryLightbox(${idx})">
-                <img src="images/gallery/${img}" alt="فلاحی سرگرمی ${idx+1}" class="gallery-card-img" loading="lazy">
-                <div class="gallery-card-tag">فلاحی سرگرمی #${idx+1}</div>
+                <img src="images/gallery/${item.file}" alt="${item.title}" class="gallery-card-img" loading="lazy">
+                <div class="gallery-card-tag">${item.title}</div>
             </div>
         `).join('');
     }
