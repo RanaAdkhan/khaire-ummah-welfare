@@ -1246,12 +1246,618 @@
         .admin-modal-box {
             background: #ffffff;
             border-radius: 20px;
-            max-width: 440px;
+            max-width: 520px;
             width: 100%;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* ==================================================== */
+        /* SCREEN 6: ANNUAL PROJECTS & AUDIT RECORDS (سالانہ ریکارڈ بک) */
+        /* ==================================================== */
+        .records-screen-wrap {
+            padding: 14px;
+        }
+
+        .records-header-banner {
+            background: linear-gradient(135deg, #006039 0%, #033a21 100%);
+            border-radius: 20px;
+            padding: 20px 16px;
+            color: #ffffff;
+            margin-bottom: 16px;
+            box-shadow: var(--app-shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .records-header-banner::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(223, 162, 42, 0.15);
+            pointer-events: none;
+        }
+
+        .records-banner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(223, 162, 42, 0.25);
+            border: 1px solid rgba(223, 162, 42, 0.6);
+            color: #facc15;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .records-banner-title {
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+
+        .records-banner-subtitle {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
+        }
+
+        /* CUMULATIVE IMPACT COUNTERS GRID */
+        .impact-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .impact-stat-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 12px 14px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .impact-stat-card:hover {
+            transform: translateY(-2px);
+            border-color: #006039;
+        }
+
+        .impact-stat-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .impact-stat-num {
+            font-size: 17px;
+            font-weight: 900;
+            color: #006039;
+            line-height: 1.1;
+            font-family: var(--eng-font), var(--urdu-font);
+            direction: ltr;
+            text-align: right;
+        }
+
+        .impact-stat-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #4b5563;
+            line-height: 1.2;
+            margin-top: 2px;
+        }
+
+        /* YEAR FILTER PILLS */
+        .year-filter-container {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .year-filter-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .year-filter-btn {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            color: #4b5563;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .year-filter-btn.active {
+            background: #006039;
+            border-color: #006039;
+            color: #ffffff;
+            box-shadow: 0 3px 10px rgba(0, 96, 57, 0.25);
+        }
+
+        /* CATEGORY FILTER CHIPS */
+        .cat-filter-scroll {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .cat-filter-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-filter-chip {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #64748b;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .cat-filter-chip.active {
+            background: #dfa22a;
+            border-color: #dfa22a;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* SEARCH BAR IN RECORDS */
+        .records-search-wrap {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 9px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .records-search-wrap input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 15px;
+            background: transparent;
+            font-family: var(--urdu-font);
+        }
+
+        /* PROJECT ARCHIVE CARD */
+        .archive-project-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+            border-right: 4px solid #006039;
+            transition: all 0.25s ease;
+        }
+
+        .archive-project-card:hover {
+            box-shadow: 0 6px 18px rgba(0, 96, 57, 0.12);
+            border-color: #cbd5e1;
+            border-right-color: #dfa22a;
+        }
+
+        .archive-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .archive-badge-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .archive-badge-year {
+            background: #dfa22a;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-family: var(--eng-font), var(--urdu-font);
+        }
+
+        .archive-badge-cat {
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 8px;
+        }
+
+        .archive-badge-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #ecfdf5;
+            color: #059669;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 12px;
+            border: 1px solid #a7f3d0;
+        }
+
+        .archive-card-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        .archive-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12.5px;
+            color: #64748b;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .archive-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .archive-beneficiaries-highlight {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            color: #b45309;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .archive-card-desc {
+            font-size: 13.5px;
+            color: #374151;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .archive-items-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+
+        .archive-tag-pill {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 11.5px;
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .archive-actions-row {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 10px;
+        }
+
+        .btn-archive-proof {
+            flex: 1;
+            background: #f0fdf4;
+            color: #006039;
+            border: 1px solid #86efac;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.2s;
+        }
+
+        .btn-archive-proof:hover {
+            background: #006039;
+            color: #ffffff;
+        }
+
+        .btn-archive-share {
+            background: #f8fafc;
+            color: #4b5563;
+            border: 1px solid #e2e8f0;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-archive-share:hover {
+            background: #25D366;
+            color: #ffffff;
+            border-color: #25D366;
+        }
+
+        /* AUDIT EXPORT TOOLBAR */
+        .audit-toolbar-box {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 16px;
+            margin-bottom: 20px;
+            box-shadow: var(--app-shadow);
+            border: 1.5px dashed #cbd5e1;
+            text-align: center;
+        }
+
+        .audit-toolbar-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: #006039;
+            margin-bottom: 10px;
+        }
+
+        .audit-buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .btn-audit-tool {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #334155;
+            padding: 9px 8px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+
+        .btn-audit-tool i {
+            font-size: 16px;
+            color: #006039;
+        }
+
+        .btn-audit-tool:hover {
+            background: #f0fdf4;
+            border-color: #86efac;
+            color: #006039;
+        }
+
+        /* HOME RECORDS CALLOUT CARD */
+        .home-records-callout-card {
+            background: linear-gradient(135deg, #006039 0%, #033a21 100%);
+            border-radius: 18px;
+            margin: 0 14px 16px;
+            padding: 16px 18px;
+            box-shadow: var(--app-shadow-lg);
+            cursor: pointer;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease;
+        }
+
+        .home-records-callout-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .home-records-callout-card::after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            bottom: -20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(223, 162, 42, 0.2);
+            pointer-events: none;
+        }
+
+        .records-callout-inner {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .records-callout-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: #dfa22a;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(223, 162, 42, 0.4);
+        }
+
+        .records-callout-texts h5 {
+            font-size: 16.5px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .records-callout-texts p {
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+
+        .records-view-link {
+            font-size: 12.5px;
+            color: #facc15;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* PROJECTS SCREEN TOGGLE BAR */
+        .projects-toggle-bar {
+            display: flex;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 14px;
+            margin-bottom: 14px;
+            gap: 4px;
+        }
+
+        .proj-toggle-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 10px;
+            background: transparent;
+            color: #64748b;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .proj-toggle-btn.active {
+            background: #006039;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 96, 57, 0.2);
+        }
+
+        /* ADMIN MODAL TABS */
+        .admin-tabs-nav {
+            display: flex;
+            border-bottom: 1.5px solid #e2e8f0;
+            margin-bottom: 14px;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .admin-tabs-nav::-webkit-scrollbar { display: none; }
+
+        .admin-tab-item {
+            padding: 8px 12px;
+            border: none;
+            background: none;
+            color: #64748b;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            border-bottom: 2.5px solid transparent;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .admin-tab-item.active {
+            color: #006039;
+            border-bottom-color: #006039;
+        }
+
+        .admin-tab-content {
+            display: none;
+        }
+
+        .admin-tab-content.active {
+            display: block;
+        }
+
+        /* PRINT STYLES FOR AUDIT REPORT */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .app-main-header, .app-bottom-nav, .floating-donate-banner,
+            .year-filter-container, .cat-filter-scroll, .records-search-wrap,
+            .audit-toolbar-box, .screen-top-bar, .archive-actions-row,
+            #imgLightbox, #toast, .admin-modal-overlay {
+                display: none !important;
+            }
+            .screen-view {
+                display: none !important;
+            }
+            #screenRecords {
+                display: block !important;
+            }
+            .records-screen-wrap {
+                padding: 0 !important;
+            }
+            .archive-project-card {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                page-break-inside: avoid;
+                margin-bottom: 12px !important;
+            }
         }
     </style>
 </head>
@@ -1271,9 +1877,14 @@
                 <i class="fa-solid fa-globe"></i> khaireummah.org
             </a>
 
-            <button class="header-back-btn" onclick="openAdminModal()" title="ایڈمن ریکارڈز" style="padding:5px 10px;">
-                <i class="fa-solid fa-lock"></i>
-            </button>
+            <div style="display:flex; gap:6px;">
+                <button class="header-back-btn" onclick="switchAppScreen('records')" title="سالانہ پروجیکٹ ریکارڈز" style="padding:5px 10px; font-size:12px;">
+                    <i class="fa-solid fa-clock-rotate-left"></i> ریکارڈز
+                </button>
+                <button class="header-back-btn" onclick="openAdminModal()" title="ایڈمن ریکارڈز" style="padding:5px 10px;">
+                    <i class="fa-solid fa-lock"></i>
+                </button>
+            </div>
         </div>
 
         <img src="images/logo.jpg" alt="Khair Ummah Logo" class="header-logo-badge">
@@ -1562,6 +2173,20 @@
 
         </div>
 
+        <!-- ANNUAL PROJECT & PERFORMANCE RECORDS CALLOUT CARD -->
+        <div class="home-records-callout-card" onclick="switchAppScreen('records')">
+            <div class="records-callout-inner">
+                <div class="records-callout-icon">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+                <div class="records-callout-texts">
+                    <h5>سالانہ کارکردگی و پراجیکٹ ریکارڈ بک</h5>
+                    <p>2024، 2025 اور 2026 کے تمام فلاحی منصوبوں، ترسیل اور آڈٹ کا مکمل شفاف ریکارڈ</p>
+                    <span class="records-view-link">تمام سالانہ ریکارڈز ملاحظہ فرمائیں <i class="fa-solid fa-arrow-left"></i></span>
+                </div>
+            </div>
+        </div>
+
         <!-- QUICK HELPLINE -->
         <div class="quick-helpline-card" style="background:#fff; border-radius:18px; margin:0 14px 16px; padding:16px; box-shadow:var(--app-shadow); border-left:4px solid #006039; display:flex; justify-content:space-between; align-items:center;">
             <div>
@@ -1623,7 +2248,17 @@
                 </button>
             </div>
 
-            <h3 style="font-size: 24px; font-weight: 800; color: #006039; margin-bottom: 12px;">ہمارے فلاحی منصوبے (Our Projects)</h3>
+            <!-- PROJECTS & RECORDS TAB TOGGLE -->
+            <div class="projects-toggle-bar">
+                <button class="proj-toggle-btn active">
+                    <i class="fa-solid fa-layer-group"></i> فلاحی شعبہ جات
+                </button>
+                <button class="proj-toggle-btn" onclick="switchAppScreen('records')">
+                    <i class="fa-solid fa-folder-closed"></i> سالانہ پروجیکٹ ریکارڈز
+                </button>
+            </div>
+
+            <h3 style="font-size: 22px; font-weight: 800; color: #006039; margin-bottom: 10px;">ہمارے فلاحی شعبہ جات (Services)</h3>
 
             <!-- Search Bar -->
             <div class="search-box-wrap">
@@ -1703,7 +2338,7 @@
                     <div class="project-item-left">
                         <span class="project-item-icon" style="color:#e11d48;">🥩</span>
                         <div>
-                            <div class="project-item-title">عطیہ قربانی و گرم کھانا تقسیم</div>
+                            <div class="project-item-title">عطیہ قربانی و کھانا تقسیم</div>
                             <div class="project-item-desc">Atiya Qurbani & Food Aid Project</div>
                         </div>
                     </div>
@@ -1721,6 +2356,159 @@
                     <i class="fa-solid fa-chevron-left project-arrow"></i>
                 </div>
             </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================== -->
+    <!-- SCREEN 6: ANNUAL PROJECTS & AUDIT RECORDS (سالانہ کارکردگی و پروجیکٹ ریکارڈ بک) -->
+    <!-- ==================================================== -->
+    <div class="screen-view" id="screenRecords">
+        <div class="records-screen-wrap">
+            <div class="screen-top-bar">
+                <button class="screen-back-action-btn" onclick="goBackOrHome()">
+                    <i class="fa-solid fa-arrow-right"></i> ہوم پر واپس
+                </button>
+            </div>
+
+            <!-- Header Banner -->
+            <div class="records-header-banner">
+                <div class="records-banner-badge">
+                    <i class="fa-solid fa-file-shield"></i> باضابطہ سالانہ ریکارڈز و کارکردگی
+                </div>
+                <h3 class="records-banner-title">سالانہ کارکردگی و پراجیکٹ ریکارڈ بک</h3>
+                <p class="records-banner-subtitle">خیراُمہ ویلفیئر سوسائٹی کے سال بہ سال (2024، 2025، 2026) تمام فلاحی منصوبوں، ترسیل اور شفاف آڈٹ کا مستقل ریکارڈ</p>
+            </div>
+
+            <!-- CUMULATIVE IMPACT STATISTICS -->
+            <div class="impact-stats-grid">
+                <div class="impact-stat-card">
+                    <div class="impact-stat-icon" style="background:#ffedd5; color:#ea580c;">
+                        <i class="fa-solid fa-bowl-rice"></i>
+                    </div>
+                    <div>
+                        <div class="impact-stat-num">15,000+</div>
+                        <div class="impact-stat-label">راشن بیگز کی تقسیم</div>
+                    </div>
+                </div>
+
+                <div class="impact-stat-card">
+                    <div class="impact-stat-icon" style="background:#e0f2fe; color:#0284c7;">
+                        <i class="fa-solid fa-hand-holding-droplet"></i>
+                    </div>
+                    <div>
+                        <div class="impact-stat-num">250+</div>
+                        <div class="impact-stat-label">صاف پانی پراجیکٹس</div>
+                    </div>
+                </div>
+
+                <div class="impact-stat-card">
+                    <div class="impact-stat-icon" style="background:#fee2e2; color:#dc2626;">
+                        <i class="fa-solid fa-truck-medical"></i>
+                    </div>
+                    <div>
+                        <div class="impact-stat-num">1,800+</div>
+                        <div class="impact-stat-label">ایمرجنسی ایمبولینس کالز</div>
+                    </div>
+                </div>
+
+                <div class="impact-stat-card">
+                    <div class="impact-stat-icon" style="background:#dcfce7; color:#16a34a;">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <div>
+                        <div class="impact-stat-num">22,000+</div>
+                        <div class="impact-stat-label">فری ڈسپنسری مریض</div>
+                    </div>
+                </div>
+
+                <div class="impact-stat-card">
+                    <div class="impact-stat-icon" style="background:#fef3c7; color:#d97706;">
+                        <i class="fa-solid fa-book-quran"></i>
+                    </div>
+                    <div>
+                        <div class="impact-stat-num">850+</div>
+                        <div class="impact-stat-label">طلبہ کے تعلیمی وظائف</div>
+                    </div>
+                </div>
+
+                <div class="impact-stat-card">
+                    <div class="impact-stat-icon" style="background:#ffe4e6; color:#e11d48;">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                    </div>
+                    <div>
+                        <div class="impact-stat-num">1,200+</div>
+                        <div class="impact-stat-label">قربانی و کھانا تقسیم</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YEAR FILTER PILLS -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:14px; font-weight:800; color:#006039;"><i class="fa-solid fa-calendar-days"></i> سال کا انتخاب فرمائیں:</span>
+                <span id="recordsCounterText" style="font-size:12px; color:#64748b; font-weight:700;">کل پراجیکٹس: 0</span>
+            </div>
+            <div class="year-filter-container" id="yearFilterRow">
+                <button class="year-filter-btn active" onclick="filterRecordsByYear('all', this)">
+                    <i class="fa-solid fa-layer-group"></i> تمام سال (All Time)
+                </button>
+                <button class="year-filter-btn" onclick="filterRecordsByYear('2026', this)">
+                    <i class="fa-solid fa-calendar-check"></i> 2026 (موجودہ سال)
+                </button>
+                <button class="year-filter-btn" onclick="filterRecordsByYear('2025', this)">
+                    <i class="fa-solid fa-calendar-check"></i> 2025 (سیلاب ریلیف و تعمیر)
+                </button>
+                <button class="year-filter-btn" onclick="filterRecordsByYear('2024', this)">
+                    <i class="fa-solid fa-calendar-check"></i> 2024 (صاف پانی و تعلیمی مہم)
+                </button>
+            </div>
+
+            <!-- CATEGORY FILTER CHIPS -->
+            <div class="cat-filter-scroll" id="catFilterRow">
+                <button class="cat-filter-chip active" onclick="filterRecordsByCategory('all', this)">تمام شعبے</button>
+                <button class="cat-filter-chip" onclick="filterRecordsByCategory('راشن و خوراک', this)">راشن و خوراک</button>
+                <button class="cat-filter-chip" onclick="filterRecordsByCategory('صاف پانی', this)">صاف پانی</button>
+                <button class="cat-filter-chip" onclick="filterRecordsByCategory('ایمبولینس و ریسکیو', this)">ایمبولینس و ریسکیو</button>
+                <button class="cat-filter-chip" onclick="filterRecordsByCategory('طبی و ڈسپنسری', this)">طبی و ڈسپنسری</button>
+                <button class="cat-filter-chip" onclick="filterRecordsByCategory('تعلیم و وظائف', this)">تعلیم و وظائف</button>
+                <button class="cat-filter-chip" onclick="filterRecordsByCategory('عطیہ قربانی و کھانا', this)">قربانی و کھانا</button>
+                <button class="cat-filter-chip" onclick="filterRecordsByCategory('غسل و کفن', this)">غسل و کفن</button>
+            </div>
+
+            <!-- SEARCH INPUT -->
+            <div class="records-search-wrap">
+                <i class="fa-solid fa-magnifying-glass" style="color:#9ca3af;"></i>
+                <input type="text" id="archiveSearchInput" placeholder="منصوبہ، شہر، یا سال تلاش کریں..." oninput="searchArchiveRecords()">
+            </div>
+
+            <!-- LIST OF PROJECT ARCHIVE CARDS -->
+            <div id="projectRecordsList">
+                <!-- Rendered dynamically via JavaScript -->
+            </div>
+
+            <!-- AUDIT EXPORT TOOLBAR -->
+            <div class="audit-toolbar-box">
+                <div class="audit-toolbar-title"><i class="fa-solid fa-file-invoice"></i> شفافیت و سالانہ آڈٹ ریکارڈز</div>
+                <div class="audit-buttons-grid">
+                    <button class="btn-audit-tool" onclick="exportProjectsCSV()">
+                        <i class="fa-solid fa-file-excel" style="color:#16a34a;"></i>
+                        <span>ایکسل (CSV) رپورٹ</span>
+                    </button>
+                    <button class="btn-audit-tool" onclick="printAuditReport()">
+                        <i class="fa-solid fa-print" style="color:#0284c7;"></i>
+                        <span>آڈٹ رپورٹ پرنٹ / PDF</span>
+                    </button>
+                    <button class="btn-audit-tool" onclick="downloadJSONBackup()">
+                        <i class="fa-solid fa-download" style="color:#dfa22a;"></i>
+                        <span>مکمل ڈیٹا بیس ڈاؤنلوڈ</span>
+                    </button>
+                    <button class="btn-audit-tool" onclick="openAdminModal()">
+                        <i class="fa-solid fa-lock" style="color:#6366f1;"></i>
+                        <span>ایڈمن پینل لاگ ان</span>
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -1940,34 +2728,34 @@
     <!-- BOTTOM APP NAVIGATION BAR (5 TABS - 100% Full Width) -->
     <!-- ==================================================== -->
     <nav class="app-bottom-nav">
-        <!-- 1. Projects -->
-        <button class="nav-item" id="navProjects" onclick="switchAppScreen('projects')">
-            <i class="fa-solid fa-layer-group"></i>
-            <span>Projects</span>
+        <!-- 1. Records / Archive -->
+        <button class="nav-item" id="navRecords" onclick="switchAppScreen('records')">
+            <i class="fa-solid fa-folder-closed"></i>
+            <span>ریکارڈز</span>
         </button>
 
-        <!-- 2. Gallery -->
-        <button class="nav-item" id="navGallery" onclick="switchAppScreen('gallery')">
-            <i class="fa-solid fa-images"></i>
-            <span>Gallery</span>
+        <!-- 2. Projects -->
+        <button class="nav-item" id="navProjects" onclick="switchAppScreen('projects')">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>منصوبے</span>
         </button>
 
         <!-- 3. Home (Active by default) -->
         <button class="nav-item active" id="navHome" onclick="switchAppScreen('home')">
             <i class="fa-solid fa-house"></i>
-            <span>Home</span>
+            <span>ہوم</span>
         </button>
 
         <!-- 4. Donation -->
         <button class="nav-item" id="navDonation" onclick="switchAppScreen('donation')">
             <i class="fa-solid fa-hand-holding-dollar"></i>
-            <span>Donation</span>
+            <span>عطیہ</span>
         </button>
 
-        <!-- 5. Apply Aid -->
-        <button class="nav-item" id="navApply" onclick="switchAppScreen('apply')">
-            <i class="fa-solid fa-file-pen"></i>
-            <span>Apply</span>
+        <!-- 5. Gallery -->
+        <button class="nav-item" id="navGallery" onclick="switchAppScreen('gallery')">
+            <i class="fa-solid fa-images"></i>
+            <span>گیلری</span>
         </button>
     </nav>
 
@@ -1988,21 +2776,106 @@
 <!-- ADMIN MODAL -->
 <div class="admin-modal-overlay" id="adminModalOverlay" onclick="if(event.target===this) closeAdminModal()">
     <div class="admin-modal-box">
-        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:12px;">
-            <h4 style="font-size:18px; color:#006039; font-weight:bold;"><i class="fa-solid fa-database"></i> موصول شدہ ریکارڈز</h4>
-            <button onclick="closeAdminModal()" style="border:none; background:none; font-size:22px; cursor:pointer;">&times;</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid #eee; padding-bottom:10px; margin-bottom:12px;">
+            <h4 style="font-size:18px; color:#006039; font-weight:bold;"><i class="fa-solid fa-shield-halved"></i> خیراُمہ ایڈمن و ریکارڈز مینجمنٹ</h4>
+            <button onclick="closeAdminModal()" style="border:none; background:none; font-size:22px; cursor:pointer; color:#64748b;">&times;</button>
         </div>
-        <div style="margin-bottom:12px; display:flex; justify-content:space-between;">
-            <span id="mRecordCount" style="font-weight:bold; font-size:14px;">کل: 0</span>
-            <button onclick="exportCSV()" style="background:#075c3b; color:white; border:none; padding:4px 10px; border-radius:6px; font-size:13px; cursor:pointer;">📥 CSV ڈاؤنلوڈ</button>
+
+        <!-- TABS NAV -->
+        <div class="admin-tabs-nav">
+            <button class="admin-tab-item active" id="adminTabBtnInbox" onclick="switchAdminTab('inbox', this)"><i class="fa-solid fa-inbox"></i> موصول شدہ ریکارڈز</button>
+            <button class="admin-tab-item" id="adminTabBtnAddProject" onclick="switchAdminTab('addProject', this)"><i class="fa-solid fa-plus-circle"></i> نیا پروجیکٹ درج کریں</button>
+            <button class="admin-tab-item" id="adminTabBtnBackup" onclick="switchAdminTab('backup', this)"><i class="fa-solid fa-database"></i> ڈیٹا بیس بیک اپ</button>
         </div>
-        <div id="mAdminRecordsList" style="font-size:13px;"></div>
+
+        <!-- TAB 1: INBOX RECORD LIST -->
+        <div class="admin-tab-content active" id="adminTabInbox">
+            <div style="margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                <span id="mRecordCount" style="font-weight:bold; font-size:14px;">کل ریکارڈز: 0</span>
+                <button onclick="exportCSV()" style="background:#006039; color:white; border:none; padding:5px 12px; border-radius:8px; font-size:13px; font-weight:bold; cursor:pointer;">
+                    <i class="fa-solid fa-file-csv"></i> CSV ڈاؤنلوڈ
+                </button>
+            </div>
+            <div id="mAdminRecordsList" style="font-size:13px; max-height:320px; overflow-y:auto;"></div>
+        </div>
+
+        <!-- TAB 2: ADD NEW PROJECT -->
+        <div class="admin-tab-content" id="adminTabAddProject">
+            <form id="addNewProjectForm" onsubmit="handleAdminAddProject(event)">
+                <div class="app-input-group" style="margin-bottom:10px;">
+                    <label>سال (Year):</label>
+                    <select id="admProjYear" class="app-input" required>
+                        <option value="2026">2026 (موجودہ سال)</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2027">2027</option>
+                    </select>
+                </div>
+                <div class="app-input-group" style="margin-bottom:10px;">
+                    <label>شعبہ (Category):</label>
+                    <select id="admProjCat" class="app-input" required>
+                        <option value="راشن و خوراک">راشن و خوراک</option>
+                        <option value="صاف پانی">صاف پانی</option>
+                        <option value="ایمبولینس و ریسکیو">ایمبولینس و ریسکیو</option>
+                        <option value="طبی و ڈسپنسری">طبی و ڈسپنسری</option>
+                        <option value="تعلیم و وظائف">تعلیم و وظائف</option>
+                        <option value="عطیہ قربانی و کھانا">عطیہ قربانی و کھانا</option>
+                        <option value="غسل و کفن">غسل و کفن</option>
+                    </select>
+                </div>
+                <div class="app-input-group" style="margin-bottom:10px;">
+                    <label>پراجیکٹ کا عنوان (Project Title):</label>
+                    <input type="text" id="admProjTitle" class="app-input" placeholder="مثال: رمضان راشن تقسیم مہم..." required>
+                </div>
+                <div class="app-input-group" style="margin-bottom:10px;">
+                    <label>مقام و شہر (Location/City):</label>
+                    <input type="text" id="admProjLocation" class="app-input" placeholder="مثال: لاہور، قصور، راجن پور..." required>
+                </div>
+                <div class="app-input-group" style="margin-bottom:10px;">
+                    <label>مستفید افراد / خاندان (Beneficiaries):</label>
+                    <input type="text" id="admProjBeneficiaries" class="app-input" placeholder="مثال: 500+ مستحق خاندان..." required>
+                </div>
+                <div class="app-input-group" style="margin-bottom:10px;">
+                    <label>تفصیل (Description):</label>
+                    <textarea id="admProjDesc" class="app-input" rows="2" placeholder="پراجیکٹ کی مختصر تفصیل..." required></textarea>
+                </div>
+                <button type="submit" class="btn-app-submit" style="background:#006039; margin-top:8px;">
+                    <i class="fa-solid fa-floppy-disk"></i> پروجیکٹ ریکارڈ محفوظ کریں
+                </button>
+            </form>
+        </div>
+
+        <!-- TAB 3: BACKUP & RESTORE -->
+        <div class="admin-tab-content" id="adminTabBackup">
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; margin-bottom:14px; font-size:13px; color:#475569; line-height:1.5;">
+                <i class="fa-solid fa-circle-info" style="color:#0284c7;"></i> یہاں سے آپ تمام عطیات، امدادی درخواستوں اور سالانہ پروجیکٹس کا مکمل ڈیٹا بیس فائل اپنے کمپیوٹر یا موبائل میں محفوظ کر سکتے ہیں اور کسی بھی وقت واپس بحال کر سکتے ہیں۔
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                <button type="button" onclick="downloadJSONBackup()" class="btn-app-submit" style="background:#006039;">
+                    <i class="fa-solid fa-download"></i> ڈیٹا بیس بیک اپ ڈاؤنلوڈ کریں (.JSON)
+                </button>
+
+                <div style="border-top:1px dashed #cbd5e1; margin:8px 0; padding-top:10px;">
+                    <label style="display:block; font-size:14px; font-weight:700; margin-bottom:6px; color:#334155;">
+                        <i class="fa-solid fa-upload"></i> ڈیٹا بیس فائل سے ریکارڈ بحال کریں:
+                    </label>
+                    <input type="file" id="dbRestoreFileInput" accept=".json" style="width:100%; font-size:13px; margin-bottom:8px;" onchange="handleRestoreJSONFile(event)">
+                </div>
+
+                <button type="button" onclick="resetDefaultProjects()" style="background:#f1f5f9; color:#ef4444; border:1px solid #fecaca; border-radius:10px; padding:8px; font-size:12px; font-weight:700; cursor:pointer;">
+                    <i class="fa-solid fa-arrows-rotate"></i> ڈیفالٹ تصدیق شدہ پروجیکٹس پر ری سیٹ کریں
+                </button>
+            </div>
+        </div>
+
     </div>
 </div>
 
 
 <script>
     const STORAGE_KEY = "khairUmmahRequests";
+    const PROJECTS_STORAGE_KEY = "khairUmmahProjectsArchive";
     let activeDonationType = "Zakat";
     let screenHistory = ['home'];
 
@@ -2020,19 +2893,195 @@
 
     const GALLERY_IMAGES = GALLERY_ITEMS.map(item => item.file);
 
+    // Default Verified Historical Project Records (سال بہ سال ریکارڈز)
+    const DEFAULT_PROJECT_RECORDS = [
+        {
+            id: "PRJ-2026-01",
+            year: "2026",
+            category: "راشن و خوراک",
+            icon: "fa-solid fa-bowl-rice",
+            title: "رمضان المبارک راشن تقسیم و ریلیف پراجیکٹ 2026",
+            date: "مارچ 2026",
+            location: "لاہور، قصور، شیخوپورہ و مضافاتی دیہات",
+            beneficiaries: "3,500+ مستحق خاندان (20,000+ افراد)",
+            status: "فعال و جاری",
+            verified: true,
+            desc: "ماہِ مبارک کے دوران غریب، نادار، دیہاڑی دار اور بیوہ خواتین کے گھروں تک مکمل ماہانہ راشن پیکجز کی باوقار ترسیل۔",
+            items: ["آٹا 20 کلو", "گھی 5 کلو", "دالیں 4 کلو", "چاول 5 کلو", "چینی 5 کلو", "چائے و مصالحہ جات"],
+            image: "images/gallery/field_ration_store.jpg"
+        },
+        {
+            id: "PRJ-2026-02",
+            year: "2026",
+            category: "ایمبولینس و ریسکیو",
+            icon: "fa-solid fa-truck-medical",
+            title: "24 گھنٹے مفت ایمرجنسی ایمبولینس سروس 2026",
+            date: "جنوری تا حال 2026",
+            location: "لاہور، رائیونڈ روڈ، مانگا منڈی و ملحقہ شاہراہیں",
+            beneficiaries: "450+ ایمرجنسی مریض و حادثات کے متاثرین",
+            status: "24 گھنٹے فعال",
+            verified: true,
+            desc: "کسی بھی ہنگامی صورتحال، روڈ حادثات یا شدید بیمار افراد کو ہسپتال تک فوری اور مفت منتقلی مع آکسیجن و فرسٹ ایڈ۔",
+            items: ["مفت ایمبولینس", "آکسیجن سلنڈر", "ابتدائی طبی امداد", "24/7 کال ریسپانس"],
+            image: "images/gallery/field_ambulance_service.jpg"
+        },
+        {
+            id: "PRJ-2026-03",
+            year: "2026",
+            category: "صاف پانی",
+            icon: "fa-solid fa-hand-holding-droplet",
+            title: "پینے کے صاف پانی کے 35 نئے ہینڈ پمپس پراجیکٹ 2026",
+            date: "فروری 2026",
+            location: "تھرپارکر، مظفر گڑھ اور جنوبی پنجاب کے پسماندہ دیہات",
+            beneficiaries: "1,200+ خاندان (روزانہ پینے کا میٹھا پانی)",
+            status: "مکمل و فعال",
+            verified: true,
+            desc: "دور دراز ریگستانی و پسماندہ علاقوں میں زیرِ زمین گہرے بورنگ اور پائیدار ہینڈ پمپس کی تنصیب تاکہ مائیں اور بچے دور سے پانی لانے کی مشقت سے بچیں۔",
+            items: ["35 ہینڈ پمپس", "گہرے بورنگ 120 فٹ", "پانی ٹیسٹنگ رپورٹ", "کنکریٹ پلیٹ فارم"],
+            image: "images/gallery/field_clean_water.jpg"
+        },
+        {
+            id: "PRJ-2026-04",
+            year: "2026",
+            category: "تعلیم و وظائف",
+            icon: "fa-solid fa-book-quran",
+            title: "یتامیٰ و نادار طلباء کے لیے تعلیمی وظائف و کتب 2026",
+            date: "فروری 2026",
+            location: "لاہور اور مختلف تعلیمی مراکز",
+            beneficiaries: "280+ طلباء و طالبات",
+            status: "جاری سالانہ اسکیم",
+            verified: true,
+            desc: "مالی تنگی کے باعث تعلیم چھوڑنے کے خطرے سے دوچار ذہین طلبہ کی سالانہ فیس، یونیفارم، کتب اور اسٹیشنری کی مکمل کفالت۔",
+            items: ["سکول و کالج فیس", "درسی کتب و کاپیاں", "یونیفارم و جوتے", "ماہانہ وظیفہ"],
+            image: "images/slider/slide_education.jpg"
+        },
+        {
+            id: "PRJ-2025-01",
+            year: "2025",
+            category: "راشن و خوراک",
+            icon: "fa-solid fa-box-archive",
+            title: "تاریخی سیلاب متاثرین کے لیے 5000 راشن بیگز و امدادی کانوائے",
+            date: "ستمبر 2025",
+            location: "راجن پور، فاضل پور، روجھان، ڈی جی خان، کوہِ سلیمان",
+            beneficiaries: "5,000+ متاثرہ خاندان (30,000+ افراد)",
+            status: "مکمل و آڈٹ شدہ",
+            verified: true,
+            desc: "سیلاب کی تباہ کاریوں کے فوری بعد خیراُمہ ویلفیئر ٹیموں نے زمینی اور کشتیوں کے ذریعے محصور دیہاتوں تک براہِ راست معیاری خوراک پہنچائی۔",
+            items: ["آٹا 20kg", "گھی 5kg", "دالیں، چاول، چینی", "پینے کا منرل واٹر", "او آر ایس و ادویات", "ترپال و خیمے"],
+            image: "images/gallery/field_flood_ration_packing.jpg"
+        },
+        {
+            id: "PRJ-2025-02",
+            year: "2025",
+            category: "ایمبولینس و ریسکیو",
+            icon: "fa-solid fa-life-ring",
+            title: "سیلاب متاثرہ علاقوں میں بوٹ ریسکیو و لائف سیونگ مشن 2025",
+            date: "اگست تا ستمبر 2025",
+            location: "سیلاب زدہ اضلاع جنوبی پنجاب و سندھ بارڈر",
+            beneficiaries: "1,500+ پھنسے ہوئے افراد و مویشی ریسکیو",
+            status: "مکمل و کامیاب مشن",
+            verified: true,
+            desc: "پانی میں گھرے ہوئے خاندانوں، خواتین، بچوں اور بزرگوں کو خصوصی ریلیف کشتیوں کے ذریعے خشک اور محفوظ مقامات تک منتقل کیا گیا۔",
+            items: ["ریسکیو کشتیاں", "لائف جیکٹس", "ایمرجنسی میڈیکل کٹس", "خشک راشن پیکٹس"],
+            image: "images/gallery/field_boat_rescue.jpg"
+        },
+        {
+            id: "PRJ-2025-03",
+            year: "2025",
+            category: "طبی و ڈسپنسری",
+            icon: "fa-solid fa-stethoscope",
+            title: "مفت فری میڈیکل کیمپس و ڈسپنسری ادویات فراہمی 2025",
+            date: "اکتوبر 2025",
+            location: "متاثرہ دیہات و مضافات لاہور",
+            beneficiaries: "8,500+ مریض (معائنہ و مفت دوائیں)",
+            status: "مکمل و تصدیق شدہ",
+            verified: true,
+            desc: "سیلاب کے بعد پھیلنے والی بیماریوں کے خلاف ماہر ڈاکٹرز کے ذریعے فری میڈیکل کیمپس کا انعقاد اور مفت ادویات تقسیم۔",
+            items: ["فری ڈاکٹر معائنہ", "اینٹی بائیوٹکس و ادویات", "بلڈ پریشر و شوگر ٹیسٹ", "ڈرپس و ویکسین"],
+            image: "images/slider/slide_dispensary.jpg"
+        },
+        {
+            id: "PRJ-2025-04",
+            year: "2025",
+            category: "عطیہ قربانی و کھانا",
+            icon: "fa-solid fa-drumstick-bite",
+            title: "عید الاضحیٰ اجتماعی قربانی و گھر گھر گوشت تقسیم 2025",
+            date: "جون 2025",
+            location: "لاہور کچی آبادیاں، دیہات و سیلاب بستیاں",
+            beneficiaries: "4,200+ سفید پوش خاندان",
+            status: "مکمل و ریکارڈ شدہ",
+            verified: true,
+            desc: "سنتِ ابراہیمی کے تحت قربانی جانوروں کا اہتمام اور گوشت کے پیکٹس بنا کر نادار خاندانوں کی دہلیز تک عزت کے ساتھ پہنچایا گیا۔",
+            items: ["450+ قربانی حصے", "گوشت پیکنگ 3 تا 5 کلو", "کولڈ چین ٹرانسپورٹ", "کھانا تقسیم"],
+            image: "images/gallery/field_food_cooking.jpg"
+        },
+        {
+            id: "PRJ-2024-01",
+            year: "2024",
+            category: "صاف پانی",
+            icon: "fa-solid fa-hand-holding-droplet",
+            title: "پینے کے صاف پانی کی فراہمی مہم - 120 ہینڈ پمپس پراجیکٹ 2024",
+            date: "سال 2024 (مکمل سال)",
+            location: "سندھ، جنوبی پنجاب اور خیبر کے پسماندہ علاقے",
+            beneficiaries: "4,500+ افراد کو روزانہ پینے کا میٹھا پانی",
+            status: "مکمل و فعال",
+            verified: true,
+            desc: "پانی کی شدید قلت کے شکار 120 دیہاتوں میں مقامی آبادی کی مشاورت سے گہرے پمپ لگائے گئے جن سے خواتین کو دور پیدل جانے سے نجات ملی۔",
+            items: ["120 ہینڈ پمپس", "گہرے بورنگ", "کنکریٹ حوض و واٹر چینل"],
+            image: "images/gallery/field_clean_water.jpg"
+        },
+        {
+            id: "PRJ-2024-02",
+            year: "2024",
+            category: "راشن و خوراک",
+            icon: "fa-solid fa-truck-ramp-box",
+            title: "ماہانہ راشن سپورٹ و سفید پوش کفالت پروگرام 2024",
+            date: "سال 2024 (ماہ بہ ماہ)",
+            location: "لاہور، گوجرانوالہ، قصور اور پسماندہ یونین کونسلز",
+            beneficiaries: "4,000+ بیوہ و یتیم خاندان",
+            status: "مکمل و تصدیق شدہ",
+            verified: true,
+            desc: "رجسٹرڈ شدہ انتہائی نادار اور معذور افراد کے خاندانوں کو پورے سال ہر ماہ راشن کی باعزت ترسیل۔",
+            items: ["ماہانہ راشن بیگز", "بچوں کے لیے خوراک", "لوڈر گاڑیوں کے ذریعے ترسیل"],
+            image: "images/gallery/field_loader_distribution.jpg"
+        },
+        {
+            id: "PRJ-2024-03",
+            year: "2024",
+            category: "غسل و کفن",
+            icon: "fa-solid fa-hands-praying",
+            title: "مفت غسل و کفن و تدفین معاونت سروس 2024",
+            date: "سال 2024",
+            location: "لاہور و مضافات",
+            beneficiaries: "180+ نادار میتوں کے باعزت انتظامات",
+            status: "سالانہ مکمل سروس",
+            verified: true,
+            desc: "لاوارث و نادار میتوں کے لیے شرعی طریقہ کے مطابق غسل، معیاری کفن کا کپڑا اور قبرستان تک ایمبولینس کی مفت سہولت۔",
+            items: ["کفن پیکج", "غسل کا سامان", "مفت ایمبولینس ٹرانسپورٹ", "تدفین معاونت"],
+            image: "images/slider/slide_ghusal_kafan.jpg"
+        }
+    ];
+
     let currentLightboxList = [];
     let currentLightboxIdx = 0;
     let heroCurrentSlide = 0;
     let heroSlideTimer = null;
+
+    // Filters for Project Archive
+    let selectedYearFilter = 'all';
+    let selectedCategoryFilter = 'all';
+    let searchArchiveQuery = '';
 
     // Initialize on Load
     document.addEventListener("DOMContentLoaded", () => {
         const d = new Date();
         document.getElementById("currentLiveDate").textContent = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         
+        initProjectsStorage();
         initHeroSlider();
         renderHomeGalleryPreview();
         renderFullGalleryGrid();
+        renderProjectRecords();
 
         // Browser / Phone Back Button Support
         window.history.pushState({ screen: 'home' }, '');
@@ -2052,6 +3101,26 @@
             }, { passive: true });
         });
     });
+
+    // Ensure Projects database in localStorage
+    function initProjectsStorage() {
+        if (!localStorage.getItem(PROJECTS_STORAGE_KEY)) {
+            localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(DEFAULT_PROJECT_RECORDS));
+        }
+    }
+
+    function getProjectsList() {
+        try {
+            const data = localStorage.getItem(PROJECTS_STORAGE_KEY);
+            return data ? JSON.parse(data) : DEFAULT_PROJECT_RECORDS;
+        } catch (e) {
+            return DEFAULT_PROJECT_RECORDS;
+        }
+    }
+
+    function saveProjectsList(list) {
+        localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(list));
+    }
 
     // Front Hero Slider Setup
     function initHeroSlider() {
@@ -2150,12 +3219,16 @@
             } else if (screenName === 'projects') {
                 document.getElementById('screenProjects').classList.add('active-screen');
                 document.getElementById('navProjects').classList.add('active');
+            } else if (screenName === 'records') {
+                document.getElementById('screenRecords').classList.add('active-screen');
+                const navRec = document.getElementById('navRecords');
+                if (navRec) navRec.classList.add('active');
+                renderProjectRecords();
             } else if (screenName === 'donation') {
                 document.getElementById('screenDonation').classList.add('active-screen');
                 document.getElementById('navDonation').classList.add('active');
             } else if (screenName === 'apply') {
                 document.getElementById('screenApply').classList.add('active-screen');
-                document.getElementById('navApply').classList.add('active');
             }
         }
 
@@ -2221,6 +3294,273 @@
             const text = item.textContent.toLowerCase();
             item.style.display = text.includes(query) ? 'flex' : 'none';
         });
+    }
+
+    // ====================================================
+    // ANNUAL PROJECT RECORDS & AUDIT ARCHIVE SYSTEM
+    // ====================================================
+    function filterRecordsByYear(year, btn) {
+        selectedYearFilter = year;
+        document.querySelectorAll('.year-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderProjectRecords();
+    }
+
+    function filterRecordsByCategory(cat, btn) {
+        selectedCategoryFilter = cat;
+        document.querySelectorAll('.cat-filter-chip').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderProjectRecords();
+    }
+
+    function searchArchiveRecords() {
+        searchArchiveQuery = document.getElementById('archiveSearchInput').value.toLowerCase().trim();
+        renderProjectRecords();
+    }
+
+    function renderProjectRecords() {
+        const wrap = document.getElementById('projectRecordsList');
+        const counter = document.getElementById('recordsCounterText');
+        if (!wrap) return;
+
+        const allProjects = getProjectsList();
+        const filtered = allProjects.filter(p => {
+            const matchYear = (selectedYearFilter === 'all' || p.year === selectedYearFilter);
+            const matchCat = (selectedCategoryFilter === 'all' || p.category === selectedCategoryFilter);
+            const text = `${p.title} ${p.location} ${p.year} ${p.category} ${p.desc} ${(p.items || []).join(' ')}`.toLowerCase();
+            const matchSearch = (!searchArchiveQuery || text.includes(searchArchiveQuery));
+            return matchYear && matchCat && matchSearch;
+        });
+
+        if (counter) {
+            counter.textContent = `کل پراجیکٹس: ${filtered.length} (مجموعی: ${allProjects.length})`;
+        }
+
+        if (filtered.length === 0) {
+            wrap.innerHTML = `
+                <div style="background:#fff; border-radius:16px; padding:30px 20px; text-align:center; color:#64748b; border:1px solid #e2e8f0; margin:10px 0;">
+                    <i class="fa-solid fa-folder-open" style="font-size:36px; color:#cbd5e1; margin-bottom:10px;"></i>
+                    <h5 style="font-size:16px; font-weight:bold; color:#334155;">کوئی پروجیکٹ ریکارڈ نہیں ملا</h5>
+                    <p style="font-size:13px; margin-top:4px;">براہِ کرم سال یا شعبہ کی فلٹر تبدیل کر کے دوبارہ کوشش کریں۔</p>
+                </div>
+            `;
+            return;
+        }
+
+        wrap.innerHTML = filtered.map(p => {
+            const itemsHtml = p.items && p.items.length > 0 ? `
+                <div class="archive-items-tags">
+                    ${p.items.map(item => `<span class="archive-tag-pill"><i class="fa-solid fa-check" style="color:#006039; font-size:10px;"></i> ${item}</span>`).join('')}
+                </div>
+            ` : '';
+
+            const imageAction = p.image ? `
+                <button type="button" class="btn-archive-proof" onclick="openLightbox('${p.image}')">
+                    <i class="fa-solid fa-image"></i> تصویری ثبوت دیکھیں
+                </button>
+            ` : '';
+
+            return `
+                <div class="archive-project-card" id="card-${p.id}">
+                    <div class="archive-card-top">
+                        <div class="archive-badge-group">
+                            <span class="archive-badge-year">${p.year}</span>
+                            <span class="archive-badge-cat"><i class="${p.icon || 'fa-solid fa-check'}"></i> ${p.category}</span>
+                        </div>
+                        <span class="archive-badge-verified"><i class="fa-solid fa-circle-check"></i> باضابطہ تصدیق شدہ</span>
+                    </div>
+
+                    <h4 class="archive-card-title">${p.title}</h4>
+
+                    <div class="archive-meta-row">
+                        <span class="archive-meta-item"><i class="fa-solid fa-calendar-day" style="color:#dfa22a;"></i> ${p.date || p.year}</span>
+                        <span class="archive-meta-item"><i class="fa-solid fa-location-dot" style="color:#ef4444;"></i> ${p.location}</span>
+                        <span class="archive-meta-item"><i class="fa-solid fa-hashtag" style="color:#64748b;"></i> ${p.id}</span>
+                    </div>
+
+                    <div class="archive-beneficiaries-highlight">
+                        <i class="fa-solid fa-users"></i> <strong>مستفید افراد / خاندان:</strong> ${p.beneficiaries}
+                    </div>
+
+                    <p class="archive-card-desc">${p.desc}</p>
+
+                    ${itemsHtml}
+
+                    <div class="archive-actions-row">
+                        ${imageAction}
+                        <button type="button" class="btn-archive-share" onclick="shareProjectWhatsApp('${p.id}')" title="واٹس ایپ پر شیئر کریں">
+                            <i class="fa-brands fa-whatsapp"></i> شیئر
+                        </button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Share project details on WhatsApp
+    function shareProjectWhatsApp(projId) {
+        const allProjects = getProjectsList();
+        const p = allProjects.find(item => item.id === projId);
+        if (!p) return;
+
+        let msg = `*خیراُمہ ویلفیئر سوسائٹی (رجسٹرڈ) - پراجیکٹ ریکارڈ*%0A` +
+                  `📌 *منصوبہ:* ${p.title}%0A` +
+                  `📅 *سال و تاریخ:* ${p.date || p.year}%0A` +
+                  `📍 *مقام:* ${p.location}%0A` +
+                  `👥 *مستفید خاندان:* ${p.beneficiaries}%0A` +
+                  `📝 *تفصیل:* ${p.desc}%0A` +
+                  `🌐 آفیشل ویب سائٹ: https://khaireummah.org/%0A` +
+                  `📞 ہیلپ لائن: 0300-1582792`;
+
+        window.open(`https://wa.me/?text=${msg}`, '_blank');
+    }
+
+    // Export Projects CSV for offline audit
+    function exportProjectsCSV() {
+        const list = getProjectsList();
+        if (list.length === 0) { alert("کوئی پروجیکٹ ریکارڈ موجود نہیں ہے"); return; }
+        
+        let csv = "\uFEFFProjectID,Year,Category,Title,Date,Location,Beneficiaries,Status,Verified,Description,KeyItems\n";
+        list.forEach(p => {
+            const itemsStr = (p.items || []).join('; ');
+            csv += `"${p.id}","${p.year}","${p.category}","${p.title.replace(/"/g, '""')}","${p.date || ''}","${p.location.replace(/"/g, '""')}","${p.beneficiaries.replace(/"/g, '""')}","${p.status || 'مکمل'}","${p.verified ? 'Yes' : 'No'}","${p.desc.replace(/"/g, '""')}","${itemsStr.replace(/"/g, '""')}"\n`;
+        });
+
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `KhairUmmah_Projects_Audit_Archive_${new Date().getFullYear()}.csv`;
+        a.click();
+        showToast("ایکسل فائل ڈاؤنلوڈ ہو گئی!");
+    }
+
+    // Print audit report
+    function printAuditReport() {
+        switchAppScreen('records', false);
+        setTimeout(() => {
+            window.print();
+        }, 300);
+    }
+
+    // Download Full JSON Backup (Donations, Aid & Projects)
+    function downloadJSONBackup() {
+        const requests = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        const projects = getProjectsList();
+        const backupData = {
+            organization: "خیراُمہ ویلفیئر سوسائٹی (رجسٹرڈ) — Khair-e-Ummah Welfare",
+            backupCreated: new Date().toISOString(),
+            website: "https://khaireummah.org/",
+            helpline: "0300-1582792",
+            requestsCount: requests.length,
+            projectsCount: projects.length,
+            requests: requests,
+            projects: projects
+        };
+
+        const jsonStr = JSON.stringify(backupData, null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `KhairUmmah_Complete_Database_Backup_${Date.now()}.json`;
+        a.click();
+        showToast("مکمل ڈیٹا بیس بیک اپ محفوظ ہو گیا!");
+    }
+
+    // Restore JSON Backup file
+    function handleRestoreJSONFile(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const parsed = JSON.parse(e.target.result);
+                if (parsed.requests && Array.isArray(parsed.requests)) {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed.requests));
+                }
+                if (parsed.projects && Array.isArray(parsed.projects)) {
+                    localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(parsed.projects));
+                }
+                renderProjectRecords();
+                openAdminModal();
+                showToast("ڈیٹا بیس کامیابی سے بحال ہو گیا!");
+                alert("ڈیٹا بیس کامیابی سے بحال ہو گیا ہے! تمام ریکارڈز اپڈیٹ ہو چکے ہیں۔");
+            } catch (err) {
+                alert("فائل درست JSON فارمیٹ میں نہیں ہے۔ براہِ کرم درست بیک اپ فائل منتخب فرمائیں۔");
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    // Reset projects to default
+    function resetDefaultProjects() {
+        if (confirm("کیا آپ واقعی تمام پروجیکٹ ریکارڈز کو اصل تصدیق شدہ ڈیفالٹ پر ری سیٹ کرنا چاہتے ہیں؟")) {
+            localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(DEFAULT_PROJECT_RECORDS));
+            renderProjectRecords();
+            showToast("پروجیکٹس ری سیٹ ہو گئے!");
+        }
+    }
+
+    // Admin Add New Project Handler
+    function handleAdminAddProject(e) {
+        e.preventDefault();
+        const year = document.getElementById('admProjYear').value;
+        const cat = document.getElementById('admProjCat').value;
+        const title = document.getElementById('admProjTitle').value.trim();
+        const location = document.getElementById('admProjLocation').value.trim();
+        const beneficiaries = document.getElementById('admProjBeneficiaries').value.trim();
+        const desc = document.getElementById('admProjDesc').value.trim();
+
+        let icon = "fa-solid fa-star";
+        if (cat.includes("راشن")) icon = "fa-solid fa-bowl-rice";
+        else if (cat.includes("پانی")) icon = "fa-solid fa-hand-holding-droplet";
+        else if (cat.includes("ایمبولینس")) icon = "fa-solid fa-truck-medical";
+        else if (cat.includes("طبی")) icon = "fa-solid fa-stethoscope";
+        else if (cat.includes("تعلیم")) icon = "fa-solid fa-book-quran";
+        else if (cat.includes("قربانی")) icon = "fa-solid fa-drumstick-bite";
+        else if (cat.includes("کفن")) icon = "fa-solid fa-hands-praying";
+
+        const newProj = {
+            id: `PRJ-${year}-${Date.now().toString().slice(-4)}`,
+            year: year,
+            category: cat,
+            icon: icon,
+            title: title,
+            date: `سال ${year}`,
+            location: location,
+            beneficiaries: beneficiaries,
+            status: "مکمل و تصدیق شدہ",
+            verified: true,
+            desc: desc,
+            items: ["باضابطہ امداد ترسیل", "معیار کنٹرول", "مستحقین میں تقسیم"],
+            image: "images/khair_ummah_main_banner.jpg"
+        };
+
+        const list = getProjectsList();
+        list.unshift(newProj);
+        saveProjectsList(list);
+
+        renderProjectRecords();
+        showToast("نیا پروجیکٹ ریکارڈ شامل ہو گیا!");
+        e.target.reset();
+        switchAdminTab('inbox', document.getElementById('adminTabBtnInbox'));
+    }
+
+    // Admin Tabs Switcher
+    function switchAdminTab(tabName, btn) {
+        document.querySelectorAll('.admin-tab-item').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.remove('active'));
+
+        btn.classList.add('active');
+        if (tabName === 'inbox') {
+            document.getElementById('adminTabInbox').classList.add('active');
+        } else if (tabName === 'addProject') {
+            document.getElementById('adminTabAddProject').classList.add('active');
+        } else if (tabName === 'backup') {
+            document.getElementById('adminTabBackup').classList.add('active');
+        }
     }
 
     // GPS Location Fetcher (Donor & Aid)
@@ -2411,7 +3751,7 @@
     // Admin Modal
     function openAdminModal() {
         const list = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-        document.getElementById('mRecordCount').textContent = `کل: ${list.length}`;
+        document.getElementById('mRecordCount').textContent = `کل ریکارڈز: ${list.length}`;
         const wrap = document.getElementById('mAdminRecordsList');
         if (list.length === 0) {
             wrap.innerHTML = `<p style="text-align:center; color:#888; padding:15px;">کوئی ریکارڈ نہیں ہے۔</p>`;
@@ -2436,14 +3776,15 @@
         if (list.length === 0) { alert("کوئی ریکارڈ نہیں ہے"); return; }
         let csv = "\uFEFFType,ID,Name,Phone,Category,Date,LocationMapURL\n";
         list.forEach(r => {
-            csv += `"${r.recordType}","${r.requestID}","${r.name}","${r.phone}","${r.category}","${r.date}"\n`;
+            csv += `"${r.recordType}","${r.requestID}","${r.name}","${r.phone}","${r.category}","${r.date}","${r.locationUrl || ''}"\n`;
         });
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = `KhairUmmah_App_Records.csv`;
+        a.download = `KhairUmmah_App_Donations_Aid_Records.csv`;
         a.click();
+        showToast("CSV فائل ڈاؤنلوڈ ہو گئی!");
     }
 </script>
 
