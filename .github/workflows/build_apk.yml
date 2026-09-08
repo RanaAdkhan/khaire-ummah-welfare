@@ -1,0 +1,65 @@
+name: Build Khair-e-Ummah Android APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java Development Kit (JDK 17)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.x'
+          channel: 'stable'
+          cache: true
+
+      - name: Check Flutter Version
+        run: flutter --version
+
+      - name: Get Dependencies
+        run: |
+          cd khair_ummah_app
+          flutter pub get
+
+      - name: Build Android Release APK
+        run: |
+          cd khair_ummah_app
+          flutter build apk --release
+
+      - name: Upload APK as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: KhairUmmah-Release-APK
+          path: khair_ummah_app/build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main'
+        with:
+          tag_name: v1.0.0-${{ github.run_number }}
+          name: "خیراُمہ ویلفیئر سوسائٹی ایپ v1.0.0 (Build ${{ github.run_number }})"
+          body: |
+            ### 📱 خیراُمہ ویلفیئر سوسائٹی آفیشل اینڈرائیڈ ایپ
+            - مکمل اردو و RTL انٹرفیس
+            - راشن، دسترخوان، واٹر پروجیکٹس اور ایمبولینس ریلیف
+            - آن لائن عطیات و امدادی فارمز
+            - براہِ راست واٹس ایپ رسید اور بینک اکاؤنٹس
+
+            نیچے دیے گئے لنک سے **APK** فائل ڈاؤنلوڈ کر کے اپنے موبائل میں انسٹال کریں۔
+          files: khair_ummah_app/build/app/outputs/flutter-apk/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

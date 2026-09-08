@@ -1,0 +1,24 @@
+{
+  "name": "خیراُمہ ویلفیئر سوسائٹی",
+  "short_name": "خیراُمہ ایپ",
+  "description": "خیر اُمہ ویلفیئر سوسائٹی (دارالتقویٰ) آفیشل موبائل ایپ",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#006039",
+  "theme_color": "#006039",
+  "orientation": "portrait",
+  "lang": "ur",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "images/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
